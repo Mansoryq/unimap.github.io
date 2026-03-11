@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMap — Student Services</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">🎓</div>
+        <span class="brand-name">UniMap</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </a>
+        <a href="universities.html">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </a>
+        <a href="results.html">
+          <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+          <span data-i18n="nav_results">Results</span>
+        </a>
+        <a href="jobs.html">
+          <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+          <span data-i18n="nav_jobs">Part-Time Jobs</span>
+        </a>
+        <a href="housing.html">
+          <span class="nav-icon"><i class="fas fa-building"></i></span>
+          <span data-i18n="nav_housing">Housing</span>
+        </a>
+        <a href="services.html" class="active">
+          <span class="nav-icon"><i class="fas fa-concierge-bell"></i></span>
+          <span data-i18n="nav_services">Student Services</span>
+        </a>
+        <a href="settings.html">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="page-title">Student Services</span>
+        </div>
+        <div class="top-bar-right">
+          <span class="brand-link">zhask.co</span>
+          <div class="avatar"><i class="fas fa-user"></i></div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- Region Tabs -->
+        <div class="region-tabs fade-in">
+          <button class="region-tab active" data-region="kz">
+            <span class="region-flag">🇰🇿</span>
+            Kazakhstan
+          </button>
+          <button class="region-tab" data-region="world">
+            <span class="region-flag">🌍</span>
+            World Wide
+          </button>
+        </div>
+
+        <!-- Search -->
+        <div class="search-bar fade-in" style="margin-top:16px;">
+          <span class="search-icon"><i class="fas fa-search"></i></span>
+          <input type="text" id="svcSearch" placeholder="Search student services...">
+        </div>
+
+        <!-- Kazakhstan Services -->
+        <div class="region-content active" id="region-kz">
+          <div class="svc-cards fade-in" style="margin-top:20px;">
+
+            <div class="svc-card" data-name="Визовая поддержка Visa">
+              <div class="svc-card-icon" style="color:#6c5ce7"><i class="fas fa-passport"></i></div>
+              <div class="svc-card-body">
+                <h4>Визовая поддержка</h4>
+                <p class="svc-desc">Помощь с оформлением студенческих виз, приглашений, легализации документов</p>
+                <div class="svc-tags"><span class="stag">Виза</span><span class="stag">Документы</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Стипендии гранты Scholarships">
+              <div class="svc-card-icon" style="color:#00b894"><i class="fas fa-award"></i></div>
+              <div class="svc-card-body">
+                <h4>Стипендии и гранты</h4>
+                <p class="svc-desc">Болашак, государственные гранты, университетские стипендии, Erasmus+</p>
+                <div class="svc-tags"><span class="stag">Гранты</span><span class="stag">Финансы</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Подготовка к экзаменам ЕНТ IELTS SAT">
+              <div class="svc-card-icon" style="color:#fdcb6e"><i class="fas fa-book-open"></i></div>
+              <div class="svc-card-body">
+                <h4>Подготовка к экзаменам</h4>
+                <p class="svc-desc">ЕНТ, IELTS, TOEFL, SAT — курсы, репетиторы, учебные материалы</p>
+                <div class="svc-tags"><span class="stag">ЕНТ</span><span class="stag">IELTS</span><span class="stag">SAT</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Перевод документов Translation Нотариус">
+              <div class="svc-card-icon" style="color:#e17055"><i class="fas fa-file-alt"></i></div>
+              <div class="svc-card-body">
+                <h4>Перевод и нотариальное заверение</h4>
+                <p class="svc-desc">Перевод аттестатов, дипломов, справок — нотариальное заверение и апостиль</p>
+                <div class="svc-tags"><span class="stag">Перевод</span><span class="stag">Нотариус</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Медицинская страховка Insurance">
+              <div class="svc-card-icon" style="color:#74b9ff"><i class="fas fa-heartbeat"></i></div>
+              <div class="svc-card-body">
+                <h4>Медицинская страховка</h4>
+                <p class="svc-desc">Студенческая медстраховка для учёбы в Казахстане и за рубежом</p>
+                <div class="svc-tags"><span class="stag">Страховка</span><span class="stag">Здоровье</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Банковские услуги Bank Карта">
+              <div class="svc-card-icon" style="color:#a29bfe"><i class="fas fa-credit-card"></i></div>
+              <div class="svc-card-body">
+                <h4>Банковские услуги</h4>
+                <p class="svc-desc">Студенческие карты Kaspi, Halyk — переводы, скидки, кэшбэк</p>
+                <div class="svc-tags"><span class="stag">Банк</span><span class="stag">Карта</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Психологическая помощь Mental Health">
+              <div class="svc-card-icon" style="color:#55efc4"><i class="fas fa-brain"></i></div>
+              <div class="svc-card-body">
+                <h4>Психологическая помощь</h4>
+                <p class="svc-desc">Бесплатные консультации при университетах, горячие линии, онлайн-психологи</p>
+                <div class="svc-tags"><span class="stag">Психология</span><span class="stag">Поддержка</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Транспорт SIM карта Transport SIM">
+              <div class="svc-card-icon" style="color:#ffeaa7"><i class="fas fa-bus"></i></div>
+              <div class="svc-card-body">
+                <h4>Транспорт и связь</h4>
+                <p class="svc-desc">Студенческие проездные, SIM-карты, интернет-тарифы для студентов</p>
+                <div class="svc-tags"><span class="stag">Транспорт</span><span class="stag">SIM</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Карьерный центр Career">
+              <div class="svc-card-icon" style="color:#fab1a0"><i class="fas fa-user-tie"></i></div>
+              <div class="svc-card-body">
+                <h4>Карьерный центр</h4>
+                <p class="svc-desc">Резюме, подготовка к собеседованиям, стажировки, ярмарки вакансий</p>
+                <div class="svc-tags"><span class="stag">Карьера</span><span class="stag">Стажировка</span></div>
+              </div>
+            </div>
+
+            <div class="svc-card" data-name="Студенческие клубы Organizations Clubs">
+              <div class="svc-card-icon" style="color:#81ecec"><i class="fas fa-users"></i></div>
+              <div class="svc-card-body">
+                <h4>Студенческие клубы и организации</h4>
+                <p class="svc-desc">Дебатный клуб, волонтёрство, AIESEC, Enactus, спортивные секции</p>
+                <div class="svc-tags"><span class="stag">Клубы</span><span class="stag">Активности</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- World Wide Countries -->
+        <div class="region-content" id="region-world">
+
+          <!-- Country Grid -->
+          <div class="country-grid fade-in" id="countryGrid" style="margin-top:20px;">
+            <div class="country-card" data-country="United States"><div class="country-flag">🇺🇸</div><div class="country-name">United States</div></div>
+            <div class="country-card" data-country="United Kingdom"><div class="country-flag">🇬🇧</div><div class="country-name">United Kingdom</div></div>
+            <div class="country-card" data-country="Canada"><div class="country-flag">🇨🇦</div><div class="country-name">Canada</div></div>
+            <div class="country-card" data-country="Germany"><div class="country-flag">🇩🇪</div><div class="country-name">Germany</div></div>
+            <div class="country-card" data-country="France"><div class="country-flag">🇫🇷</div><div class="country-name">France</div></div>
+            <div class="country-card" data-country="Australia"><div class="country-flag">🇦🇺</div><div class="country-name">Australia</div></div>
+            <div class="country-card" data-country="Japan"><div class="country-flag">🇯🇵</div><div class="country-name">Japan</div></div>
+            <div class="country-card" data-country="South Korea"><div class="country-flag">🇰🇷</div><div class="country-name">South Korea</div></div>
+            <div class="country-card" data-country="China"><div class="country-flag">🇨🇳</div><div class="country-name">China</div></div>
+            <div class="country-card" data-country="Turkey"><div class="country-flag">🇹🇷</div><div class="country-name">Turkey</div></div>
+            <div class="country-card" data-country="Russia"><div class="country-flag">🇷🇺</div><div class="country-name">Russia</div></div>
+            <div class="country-card" data-country="Netherlands"><div class="country-flag">🇳🇱</div><div class="country-name">Netherlands</div></div>
+            <div class="country-card" data-country="Switzerland"><div class="country-flag">🇨🇭</div><div class="country-name">Switzerland</div></div>
+            <div class="country-card" data-country="Singapore"><div class="country-flag">🇸🇬</div><div class="country-name">Singapore</div></div>
+            <div class="country-card" data-country="Sweden"><div class="country-flag">🇸🇪</div><div class="country-name">Sweden</div></div>
+            <div class="country-card" data-country="Italy"><div class="country-flag">🇮🇹</div><div class="country-name">Italy</div></div>
+            <div class="country-card" data-country="Spain"><div class="country-flag">🇪🇸</div><div class="country-name">Spain</div></div>
+            <div class="country-card" data-country="UAE"><div class="country-flag">🇦🇪</div><div class="country-name">UAE</div></div>
+            <div class="country-card" data-country="Malaysia"><div class="country-flag">🇲🇾</div><div class="country-name">Malaysia</div></div>
+            <div class="country-card" data-country="Czech Republic"><div class="country-flag">🇨🇿</div><div class="country-name">Czech Republic</div></div>
+            <div class="country-card" data-country="Poland"><div class="country-flag">🇵🇱</div><div class="country-name">Poland</div></div>
+            <div class="country-card" data-country="Hungary"><div class="country-flag">🇭🇺</div><div class="country-name">Hungary</div></div>
+            <div class="country-card" data-country="India"><div class="country-flag">🇮🇳</div><div class="country-name">India</div></div>
+            <div class="country-card" data-country="New Zealand"><div class="country-flag">🇳🇿</div><div class="country-name">New Zealand</div></div>
+          </div>
+
+          <!-- Country Services drill-down -->
+          <div id="countrySvcView" style="display:none; margin-top:20px;">
+            <button class="back-to-countries" id="backToCountries">
+              <i class="fas fa-arrow-left"></i>
+              <span>Back to countries</span>
+            </button>
+            <h3 class="country-uni-title" id="countrySvcTitle"></h3>
+            <div class="svc-cards fade-in" id="countrySvcCards"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-items">
+        <button class="bottom-nav-item" onclick="location.href='dashboard.html'">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='universities.html'">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='results.html'">
+          <span class="nav-icon"><i class="fas fa-folder-open"></i></span>
+          <span data-i18n="nav_portfolio">Portfolio</span>
+        </button>
+        <button class="bottom-nav-item">
+          <span class="nav-icon"><i class="fas fa-bell"></i></span>
+          <span data-i18n="nav_notifications">Notifications</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='settings.html'">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    // === Services data by country ===
+    const worldServices = {
+      "United States": [
+        { name: "F-1 Visa & Immigration Support", icon: "fa-passport", color: "#6c5ce7", desc: "OPT, CPT, visa renewals, SEVIS — international student office at every university" },
+        { name: "Financial Aid & Scholarships", icon: "fa-award", color: "#00b894", desc: "FAFSA, merit scholarships, need-based aid, Fulbright, assistantships" },
+        { name: "Health Insurance (SHIP)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory student health insurance plans, campus health centers" },
+        { name: "Career Services & Internships", icon: "fa-user-tie", color: "#fab1a0", desc: "Resume workshops, career fairs, Handshake, LinkedIn prep, mock interviews" },
+        { name: "Mental Health & Counseling", icon: "fa-brain", color: "#55efc4", desc: "Free campus counseling, crisis hotlines, peer support programs" },
+        { name: "Academic Tutoring & Writing Centers", icon: "fa-book-open", color: "#fdcb6e", desc: "Free tutoring, writing labs, study groups, academic advising" },
+        { name: "Campus Recreation & Clubs", icon: "fa-users", color: "#81ecec", desc: "500+ student orgs, Greek life, intramural sports, cultural clubs" },
+        { name: "Student Banking & Credit Cards", icon: "fa-credit-card", color: "#a29bfe", desc: "Student checking accounts (Chase, BofA), no-fee credit cards, Zelle" }
+      ],
+      "United Kingdom": [
+        { name: "Tier 4 / Student Visa Support", icon: "fa-passport", color: "#6c5ce7", desc: "CAS letters, BRP card, visa extensions, Graduate Route visa" },
+        { name: "Scholarships & Bursaries", icon: "fa-award", color: "#00b894", desc: "Chevening, Commonwealth, university-specific bursaries and fee waivers" },
+        { name: "NHS & Health Services", icon: "fa-heartbeat", color: "#74b9ff", desc: "Free NHS healthcare with Immigration Health Surcharge, campus GP" },
+        { name: "Careers & Employability", icon: "fa-user-tie", color: "#fab1a0", desc: "CV workshops, employer events, Prospects, RateMyPlacement" },
+        { name: "Wellbeing & Counseling", icon: "fa-brain", color: "#55efc4", desc: "Free counseling, Nightline, mental health advisors, Student Minds" },
+        { name: "Student Union & Societies", icon: "fa-users", color: "#81ecec", desc: "Hundreds of societies, sports clubs, volunteering, freshers' events" },
+        { name: "Student Banking", icon: "fa-credit-card", color: "#a29bfe", desc: "Student accounts (Monzo, Santander), 0% overdrafts, 16–25 Railcard" },
+        { name: "Transport Discounts", icon: "fa-bus", color: "#ffeaa7", desc: "16–25 Railcard, NUS TOTUM card, student Oyster, cycle schemes" }
+      ],
+      "Canada": [
+        { name: "Study Permit & Immigration", icon: "fa-passport", color: "#6c5ce7", desc: "Study permit extensions, PGWP, co-op work permits, IRCC guidance" },
+        { name: "Scholarships & OSAP", icon: "fa-award", color: "#00b894", desc: "Vanier, Lester B. Pearson, OSAP loans, provincial grants" },
+        { name: "UHIP / Health Coverage", icon: "fa-heartbeat", color: "#74b9ff", desc: "UHIP or provincial health insurance, campus clinics" },
+        { name: "Career Centre", icon: "fa-user-tie", color: "#fab1a0", desc: "Co-op programs, job boards, resume help, career coaching" },
+        { name: "Mental Health Support", icon: "fa-brain", color: "#55efc4", desc: "Campus counseling, Good2Talk helpline, wellness programs" },
+        { name: "Student Clubs & Associations", icon: "fa-users", color: "#81ecec", desc: "Cultural clubs, debate, AIESEC, varsity sports, volunteer networks" },
+        { name: "Student Banking", icon: "fa-credit-card", color: "#a29bfe", desc: "No-fee student accounts at TD, RBC, Scotiabank; Interac e-Transfer" },
+        { name: "Transit & U-Pass", icon: "fa-bus", color: "#ffeaa7", desc: "U-Pass unlimited transit, student bike-share, intercity discounts" }
+      ],
+      "Germany": [
+        { name: "Visa & Aufenthaltstitel", icon: "fa-passport", color: "#6c5ce7", desc: "Student residence permit, Ausländerbehörde registration, blocked account" },
+        { name: "Scholarships (DAAD, Stipendien)", icon: "fa-award", color: "#00b894", desc: "DAAD, Deutschlandstipendium, Erasmus+, SBW Berlin, foundation grants" },
+        { name: "Health Insurance (Krankenversicherung)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory public insurance (TK, AOK) or private — ~€110/mo" },
+        { name: "Career Services (Career Center)", icon: "fa-user-tie", color: "#fab1a0", desc: "Werkstudent job boards, StepStone, career fairs, CV workshops" },
+        { name: "Psychologische Beratung", icon: "fa-brain", color: "#55efc4", desc: "Free counseling at Studentenwerk, university psychological services" },
+        { name: "Semesterticket & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "Deutschlandticket (€49/mo), Semesterticket — free regional transport" },
+        { name: "Student Life & Fachschaften", icon: "fa-users", color: "#81ecec", desc: "Fachschaften, ESN chapters, sports (Hochschulsport), cultural events" },
+        { name: "Banking (Girokonto)", icon: "fa-credit-card", color: "#a29bfe", desc: "Free student accounts at N26, DKB, Sparkasse; blocked account setup" }
+      ],
+      "France": [
+        { name: "Visa & Titre de Séjour", icon: "fa-passport", color: "#6c5ce7", desc: "Student visa (VLS-TS), residence permit renewal, Campus France" },
+        { name: "Bourses & Aides (Scholarships)", icon: "fa-award", color: "#00b894", desc: "Eiffel, CROUS bourse, Erasmus+, Région grants, APL housing aid" },
+        { name: "Sécurité Sociale & Health", icon: "fa-heartbeat", color: "#74b9ff", desc: "Free registration to French social security, Ameli, mutuelle complémentaire" },
+        { name: "Career Services & Stages", icon: "fa-user-tie", color: "#fab1a0", desc: "Convention de stage (internship agreements), career fairs, LinkedIn France" },
+        { name: "Aide Psychologique", icon: "fa-brain", color: "#55efc4", desc: "Free sessions via Santé Psy Étudiant, BAPU, university counseling" },
+        { name: "CAF / APL Housing Aid", icon: "fa-home", color: "#fdcb6e", desc: "Government housing subsidy — most students qualify for €100–250/mo" },
+        { name: "Student Life & BDE", icon: "fa-users", color: "#81ecec", desc: "BDE (Bureau des Étudiants), associations, soirées, sports FFSU" },
+        { name: "Transport & Navigo", icon: "fa-bus", color: "#ffeaa7", desc: "50% discount on Navigo pass, SNCF youth cards, Vélib' bikes" }
+      ],
+      "Australia": [
+        { name: "Student Visa (Subclass 500)", icon: "fa-passport", color: "#6c5ce7", desc: "Visa renewals, OSHC requirement, work rights (48hr/fortnight)" },
+        { name: "Scholarships & Loans", icon: "fa-award", color: "#00b894", desc: "Australia Awards, Destination Australia, HECS-HELP, uni scholarships" },
+        { name: "OSHC Health Insurance", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory OSHC for international students (Medibank, Allianz, Bupa)" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "Career hubs, SEEK, GradConnection, industry placements" },
+        { name: "Counseling & Wellbeing", icon: "fa-brain", color: "#55efc4", desc: "Free counseling, headspace, Beyond Blue, campus support" },
+        { name: "Student Clubs & Sport", icon: "fa-users", color: "#81ecec", desc: "O-Week, 200+ clubs, UniSport, cultural societies" },
+        { name: "Opal/Myki Transport", icon: "fa-bus", color: "#ffeaa7", desc: "Student concession cards, Opal (NSW), Myki (VIC), GoCard (QLD)" },
+        { name: "Banking", icon: "fa-credit-card", color: "#a29bfe", desc: "Student accounts at CommBank, ANZ, Westpac; no monthly fees" }
+      ],
+      "Japan": [
+        { name: "Student Visa & Residence Card", icon: "fa-passport", color: "#6c5ce7", desc: "在留カード (Zairyu Card), visa renewals, 資格外活動許可 (work permit)" },
+        { name: "MEXT & JASSO Scholarships", icon: "fa-award", color: "#00b894", desc: "MEXT (full scholarship), JASSO, university tuition waivers" },
+        { name: "National Health Insurance (国民健康保険)", icon: "fa-heartbeat", color: "#74b9ff", desc: "NHI — ~¥1,500/mo for students, 70% coverage" },
+        { name: "Career Support (就活サポート)", icon: "fa-user-tie", color: "#fab1a0", desc: "Shūkatsu guidance, company seminars, Hello Work, career centers" },
+        { name: "Counseling (相談窓口)", icon: "fa-brain", color: "#55efc4", desc: "University counseling rooms, TELL Lifeline, peer support" },
+        { name: "Student Life & Circles (サークル)", icon: "fa-users", color: "#81ecec", desc: "Club activities, cultural festivals, sports circles, volunteer groups" },
+        { name: "Commuter Pass (通学定期)", icon: "fa-bus", color: "#ffeaa7", desc: "Student commuter passes 50%+ discount on trains and buses" },
+        { name: "Banking (銀行口座)", icon: "fa-credit-card", color: "#a29bfe", desc: "Student accounts at Japan Post Bank, SMBC; cashless with PayPay" }
+      ],
+      "South Korea": [
+        { name: "D-2 Visa & ARC", icon: "fa-passport", color: "#6c5ce7", desc: "Alien Registration Card, visa extensions, part-time work permit" },
+        { name: "KGSP & Scholarships", icon: "fa-award", color: "#00b894", desc: "Korean Government Scholarship (KGSP), university scholarships, TOPIK bonuses" },
+        { name: "National Health Insurance (건강보험)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory NHIS — ~₩40,000/mo, campus health centers" },
+        { name: "Career Support", icon: "fa-user-tie", color: "#fab1a0", desc: "Career fairs, LinkedIn Korea, Saramin, internship programs" },
+        { name: "Counseling (상담센터)", icon: "fa-brain", color: "#55efc4", desc: "Free university counseling, Seoul Global Center support" },
+        { name: "Student Clubs (동아리)", icon: "fa-users", color: "#81ecec", desc: "동아리 culture, MT trips, festivals, K-culture activities" },
+        { name: "T-money & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "T-money card, subway/bus discounts, KTX youth passes" },
+        { name: "Banking (은행)", icon: "fa-credit-card", color: "#a29bfe", desc: "Student accounts at Woori, KEB Hana; KakaoPay, Toss" }
+      ],
+      "China": [
+        { name: "Student Visa (X1/X2)", icon: "fa-passport", color: "#6c5ce7", desc: "Residence permit, registration at local PSB, visa renewal" },
+        { name: "CSC & Scholarships", icon: "fa-award", color: "#00b894", desc: "Chinese Government Scholarship (CSC), Confucius Institute, university grants" },
+        { name: "Health Insurance", icon: "fa-heartbeat", color: "#74b9ff", desc: "Campus clinics, mandatory insurance ~¥400–800/yr" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "Campus career fairs, internship programs, guanxi networking" },
+        { name: "Mental Health Support", icon: "fa-brain", color: "#55efc4", desc: "University counseling centers, peer support hotlines" },
+        { name: "Student Associations", icon: "fa-users", color: "#81ecec", desc: "Cultural clubs, language exchange, sports, international student groups" },
+        { name: "Transport & DiDi", icon: "fa-bus", color: "#ffeaa7", desc: "Metro cards, student discounts, DiDi ride-hailing, shared bikes" },
+        { name: "Banking (WeChat Pay, Alipay)", icon: "fa-credit-card", color: "#a29bfe", desc: "Bank of China student account, WeChat Pay, Alipay — cashless society" }
+      ],
+      "Turkey": [
+        { name: "İkamet (Residence Permit)", icon: "fa-passport", color: "#6c5ce7", desc: "Student residence permit via e-İkamet, registration at Göç İdaresi" },
+        { name: "Türkiye Bursları & Scholarships", icon: "fa-award", color: "#00b894", desc: "Türkiye Bursları (full ride), YÖK grants, university scholarships" },
+        { name: "Health Insurance (SGK)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Free SGK for scholarship holders, private insurance options" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "University career centers, Kariyer.net, internship fairs" },
+        { name: "Psychological Support", icon: "fa-brain", color: "#55efc4", desc: "Free campus counseling (PDREM), peer support" },
+        { name: "Student Clubs & Activities", icon: "fa-users", color: "#81ecec", desc: "University clubs, cultural events, Erasmus student network" },
+        { name: "İstanbulkart & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "Student İstanbulkart, Ankarakart — 50% discounts on public transport" },
+        { name: "Banking (Hesap)", icon: "fa-credit-card", color: "#a29bfe", desc: "Student accounts at Ziraat, İş Bankası; Papara, Ininal cards" }
+      ],
+      "Russia": [
+        { name: "Студенческая виза и регистрация", icon: "fa-passport", color: "#6c5ce7", desc: "Учебная виза, миграционный учёт, продление, оформление через вуз" },
+        { name: "Стипендии и гранты", icon: "fa-award", color: "#00b894", desc: "Квота Правительства РФ, стипендии Россотрудничества, университетские гранты" },
+        { name: "Медстраховка (ДМС)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Обязательный полис ДМС, университетские поликлиники" },
+        { name: "Трудоустройство", icon: "fa-user-tie", color: "#fab1a0", desc: "Центры карьеры, ярмарки вакансий, hh.ru, стажировки" },
+        { name: "Психологическая поддержка", icon: "fa-brain", color: "#55efc4", desc: "Бесплатные консультации при вузах, телефон доверия" },
+        { name: "Студенческие организации", icon: "fa-users", color: "#81ecec", desc: "Профком, КВН, волонтёрские движения, спорт, научные кружки" },
+        { name: "Транспорт (Студенческий)", icon: "fa-bus", color: "#ffeaa7", desc: "Льготный проезд, социальная карта студента, РЖД скидки" },
+        { name: "Банковские услуги", icon: "fa-credit-card", color: "#a29bfe", desc: "Студенческие карты Сбер, Тинькофф; СБП переводы" }
+      ],
+      "Netherlands": [
+        { name: "Visa & MVV / VVR", icon: "fa-passport", color: "#6c5ce7", desc: "MVV entry visa, VVR residence permit, university sponsorship" },
+        { name: "Scholarships (Holland Scholarship)", icon: "fa-award", color: "#00b894", desc: "Holland Scholarship, Erasmus Mundus, OKP, university funds" },
+        { name: "Health Insurance (Zorgverzekering)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory Dutch health insurance ~€120/mo, AON student plan" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "Career centres, job boards, LinkedIn NL, startup incubators" },
+        { name: "Student Wellbeing", icon: "fa-brain", color: "#55efc4", desc: "University psychologists, student advisors, Nightline" },
+        { name: "Student Associations (Verenigingen)", icon: "fa-users", color: "#81ecec", desc: "Study associations, sports, ESN, introduction weeks" },
+        { name: "OV-Chipkaart & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "OV-chipkaart, studentenreisproduct (free travel M-F or weekends)" },
+        { name: "Banking (ABN AMRO, ING)", icon: "fa-credit-card", color: "#a29bfe", desc: "Student accounts at ING, ABN AMRO, Bunq; iDEAL payments" }
+      ],
+      "Switzerland": [
+        { name: "Residence Permit (Aufenthaltsbewilligung)", icon: "fa-passport", color: "#6c5ce7", desc: "B permit for students, cantonal registration, work limits (15hr/wk)" },
+        { name: "Scholarships (ESKAS)", icon: "fa-award", color: "#00b894", desc: "Swiss Government Excellence Scholarships, ETH/EPFL grants" },
+        { name: "Health Insurance (Krankenkasse)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory Grundversicherung ~CHF 80–200/mo, SWICA, CSS" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "ETH/EPFL career centers, job fairs, Swiss startup ecosystem" },
+        { name: "Wellbeing", icon: "fa-brain", color: "#55efc4", desc: "University counseling, Pro Juventute helpline" },
+        { name: "Student Associations", icon: "fa-users", color: "#81ecec", desc: "VSETH, AGEPoly, sports ASVZ, cultural groups" },
+        { name: "Transport (Halbtax/GA)", icon: "fa-bus", color: "#ffeaa7", desc: "Halbtax card (50% SBB), GA Travelcard, local Libero/ZVV" }
+      ],
+      "Singapore": [
+        { name: "Student Pass (STP)", icon: "fa-passport", color: "#6c5ce7", desc: "Student's Pass via SOLAR/ICA, work limitations" },
+        { name: "Scholarships (ASEAN, Tuition Grant)", icon: "fa-award", color: "#00b894", desc: "MOE Tuition Grant, ASEAN scholarships, university awards" },
+        { name: "Health Insurance", icon: "fa-heartbeat", color: "#74b9ff", desc: "University health plans, polyclinics with subsidies" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "NUS/NTU career centres, career fairs, tech internships" },
+        { name: "Counseling", icon: "fa-brain", color: "#55efc4", desc: "University counseling, peer helpers, SOS helpline" },
+        { name: "Student Life & CCAs", icon: "fa-users", color: "#81ecec", desc: "Co-curricular activities, sports, cultural groups, NUS Rag" },
+        { name: "EZ-Link & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "Student concession EZ-Link card, MRT/bus discounts" }
+      ],
+      "Sweden": [
+        { name: "Residence Permit (Uppehållstillstånd)", icon: "fa-passport", color: "#6c5ce7", desc: "Migrationsverket residence permit, personnummer registration" },
+        { name: "Scholarships (SI, SASS)", icon: "fa-award", color: "#00b894", desc: "Swedish Institute scholarships, SASS, university fee waivers" },
+        { name: "Health & Försäkringskassan", icon: "fa-heartbeat", color: "#74b9ff", desc: "Free healthcare for EU students, Student IN insurance for non-EU" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "University career centers, Arbetsförmedlingen, AARMY" },
+        { name: "Student Wellbeing", icon: "fa-brain", color: "#55efc4", desc: "Free counseling, student health centers, Studenthälsan" },
+        { name: "Student Nations & Clubs", icon: "fa-users", color: "#81ecec", desc: "Student nations (Lund, Uppsala), kårer, sports, gasques" },
+        { name: "SL/Västtrafik Student Card", icon: "fa-bus", color: "#ffeaa7", desc: "Reduced monthly passes for students, SJ youth tickets" }
+      ],
+      "Italy": [
+        { name: "Permesso di Soggiorno", icon: "fa-passport", color: "#6c5ce7", desc: "Student residence permit via Questura, kit postale procedure" },
+        { name: "Scholarships (DSU, Invest Your Talent)", icon: "fa-award", color: "#00b894", desc: "Regional DSU scholarships, Invest Your Talent in Italy, Erasmus+" },
+        { name: "Health (SSN Tessera Sanitaria)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Voluntary SSN enrollment ~€150/yr, codice fiscale required" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "AlmaLaurea, university career offices, stage/tirocinio system" },
+        { name: "Counseling", icon: "fa-brain", color: "#55efc4", desc: "University counseling (sportello psicologico), Telefono Amico" },
+        { name: "Student Associations", icon: "fa-users", color: "#81ecec", desc: "ESN Italy, university student councils, cultural events" },
+        { name: "Transport Discounts", icon: "fa-bus", color: "#ffeaa7", desc: "Regional student passes, Trenitalia/Italo youth discounts, BikeMi" }
+      ],
+      "Spain": [
+        { name: "NIE & Tarjeta de Estudiante", icon: "fa-passport", color: "#6c5ce7", desc: "Student visa, NIE number, residence card renewal" },
+        { name: "Scholarships (MEC, Erasmus)", icon: "fa-award", color: "#00b894", desc: "Becas MEC, Erasmus+, MAEC-AECID, foundation grants" },
+        { name: "Health (Tarjeta Sanitaria)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Public healthcare access, university insurance, centros de salud" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "University COIE offices, InfoJobs, LinkedIn ES, internships" },
+        { name: "Wellbeing", icon: "fa-brain", color: "#55efc4", desc: "University psychological services, Teléfono de la Esperanza" },
+        { name: "Student Life & Tunas", icon: "fa-users", color: "#81ecec", desc: "Student associations, tunas, erasmus groups, fiestas universitarias" },
+        { name: "Abono Transporte & Renfe", icon: "fa-bus", color: "#ffeaa7", desc: "Abono Joven (€20/mo Madrid), Renfe youth, Bicing Barcelona" }
+      ],
+      "UAE": [
+        { name: "Student Visa & Emirates ID", icon: "fa-passport", color: "#6c5ce7", desc: "University-sponsored student visa, Emirates ID registration" },
+        { name: "Scholarships", icon: "fa-award", color: "#00b894", desc: "Government scholarships, university merit awards, ADEK grants" },
+        { name: "Health Insurance", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory health insurance, DHA approved plans" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "Career fairs, LinkedIn MENA, internship programs, Bayt.com" },
+        { name: "Wellbeing", icon: "fa-brain", color: "#55efc4", desc: "University counseling, national helpline 800-HOPE" },
+        { name: "Student Activities", icon: "fa-users", color: "#81ecec", desc: "Student councils, cultural events, sports, hackathons" },
+        { name: "NOL Card & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "NOL card (Dubai), Hafilat (Abu Dhabi), student discounts" }
+      ],
+      "Malaysia": [
+        { name: "Student Pass (EMGS)", icon: "fa-passport", color: "#6c5ce7", desc: "Student pass via EMGS, iKad card, special pass renewal" },
+        { name: "Scholarships (JPA, PTPTN)", icon: "fa-award", color: "#00b894", desc: "JPA scholarships, PTPTN loans, Yayasan grants, uni scholarships" },
+        { name: "Health Insurance", icon: "fa-heartbeat", color: "#74b9ff", desc: "University health coverage, government hospitals subsidized" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "Campus career centres, Jobstreet, TalentCorp, internships" },
+        { name: "Counseling", icon: "fa-brain", color: "#55efc4", desc: "University counseling units, Befrienders Malaysia" },
+        { name: "Student Clubs", icon: "fa-users", color: "#81ecec", desc: "Cultural clubs, sports, debate, student council, AIESEC" },
+        { name: "Rapid KL & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "Student concession Touch 'n Go, Rapid KL, KTM discounts" }
+      ],
+      "Czech Republic": [
+        { name: "Long-term Visa / Residence Permit", icon: "fa-passport", color: "#6c5ce7", desc: "Student visa via embassy, residence permit at MOI, OAMP" },
+        { name: "Scholarships", icon: "fa-award", color: "#00b894", desc: "Czech Government scholarships, university grants, Erasmus+" },
+        { name: "Health Insurance (VZP)", icon: "fa-heartbeat", color: "#74b9ff", desc: "VZP student insurance ~CZK 6,000/6mo, European Health Insurance Card" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "University career centres, Jobs.cz, startup.jobs" },
+        { name: "Counseling", icon: "fa-brain", color: "#55efc4", desc: "University psychological centers, Linka důvěry helpline" },
+        { name: "Student Organizations", icon: "fa-users", color: "#81ecec", desc: "ESN, ISC, faculty student councils, sports" },
+        { name: "Lítačka & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "Student Lítačka card (Prague), discounted ČD trains" }
+      ],
+      "Poland": [
+        { name: "Student Visa & Karta Pobytu", icon: "fa-passport", color: "#6c5ce7", desc: "National visa (D), temporary residence card, Urząd registration" },
+        { name: "Scholarships (NAWA)", icon: "fa-award", color: "#00b894", desc: "NAWA scholarships, Erasmus+, university rector's scholarships" },
+        { name: "Health Insurance (NFZ)", icon: "fa-heartbeat", color: "#74b9ff", desc: "Free NFZ for EU students, voluntary insurance for non-EU ~PLN 55/mo" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "University career offices, Pracuj.pl, startup hubs" },
+        { name: "Counseling", icon: "fa-brain", color: "#55efc4", desc: "University psychological help, Telefon Zaufania" },
+        { name: "Student Organizations", icon: "fa-users", color: "#81ecec", desc: "ESN Poland, Samorząd Studencki, sports AZS, Juwenalia festivals" },
+        { name: "Transport (ELS)", icon: "fa-bus", color: "#ffeaa7", desc: "Student ELS card, 51% discount on trains/buses, city passes" }
+      ],
+      "Hungary": [
+        { name: "Residence Permit", icon: "fa-passport", color: "#6c5ce7", desc: "Student residence permit via OIF, registration, address card" },
+        { name: "Stipendium Hungaricum", icon: "fa-award", color: "#00b894", desc: "Stipendium Hungaricum (full scholarship), Erasmus+, uni awards" },
+        { name: "Health Insurance (TAJ)", icon: "fa-heartbeat", color: "#74b9ff", desc: "TAJ card — social security number for healthcare access" },
+        { name: "Career Support", icon: "fa-user-tie", color: "#fab1a0", desc: "University career offices, Profession.hu, startup programs" },
+        { name: "Counseling", icon: "fa-brain", color: "#55efc4", desc: "University counseling, TÉSZ helpline, peer support" },
+        { name: "Student Life (HÖK)", icon: "fa-users", color: "#81ecec", desc: "Hallgatói Önkormányzat, clubs, gólyatábor, sports" },
+        { name: "BKK Student Pass", icon: "fa-bus", color: "#ffeaa7", desc: "Student BKK pass (Budapest), MÁV/Volánbusz discounts" }
+      ],
+      "India": [
+        { name: "Student Visa (S-Visa)", icon: "fa-passport", color: "#6c5ce7", desc: "Student visa, FRRO registration, visa extensions" },
+        { name: "Scholarships (UGC, ICCR)", icon: "fa-award", color: "#00b894", desc: "UGC fellowships, ICCR scholarships, state grants, INSPIRE" },
+        { name: "Health Services", icon: "fa-heartbeat", color: "#74b9ff", desc: "Campus health centers, CGHS, private insurance, Ayushman Bharat" },
+        { name: "Placement Cell", icon: "fa-user-tie", color: "#fab1a0", desc: "University placement cells, campus placements, Naukri, Internshala" },
+        { name: "Counseling", icon: "fa-brain", color: "#55efc4", desc: "University counseling centers, iCall, Vandrevala Foundation" },
+        { name: "Student Clubs", icon: "fa-users", color: "#81ecec", desc: "Technical clubs, cultural committees, NSS, NCC, fests" },
+        { name: "Metro & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "Student bus/metro passes, Indian Railways concessions" }
+      ],
+      "New Zealand": [
+        { name: "Student Visa", icon: "fa-passport", color: "#6c5ce7", desc: "Student visa via INZ, post-study work visa options" },
+        { name: "Scholarships (NZ Excellence)", icon: "fa-award", color: "#00b894", desc: "NZ Excellence Awards, MFAT scholarships, university grants" },
+        { name: "Health Insurance", icon: "fa-heartbeat", color: "#74b9ff", desc: "Mandatory insurance for international students, Studentsafe, Orbit" },
+        { name: "Career Services", icon: "fa-user-tie", color: "#fab1a0", desc: "University career hubs, SEEK NZ, Student Job Search, co-ops" },
+        { name: "Wellbeing Services", icon: "fa-brain", color: "#55efc4", desc: "Free counseling, 1737 helpline, campus wellbeing teams" },
+        { name: "Student Associations", icon: "fa-users", color: "#81ecec", desc: "Student unions, O-Week, clubs, sports, volunteering" },
+        { name: "AT HOP & Transport", icon: "fa-bus", color: "#ffeaa7", desc: "AT HOP card (Auckland), Metlink (Wellington), student concessions" }
+      ]
+    };
+
+    const countryFlags = {
+      "United States": "🇺🇸", "United Kingdom": "🇬🇧", "Canada": "🇨🇦", "Germany": "🇩🇪",
+      "France": "🇫🇷", "Australia": "🇦🇺", "Japan": "🇯🇵", "South Korea": "🇰🇷",
+      "China": "🇨🇳", "Turkey": "🇹🇷", "Russia": "🇷🇺", "Netherlands": "🇳🇱",
+      "Switzerland": "🇨🇭", "Singapore": "🇸🇬", "Sweden": "🇸🇪", "Italy": "🇮🇹",
+      "Spain": "🇪🇸", "UAE": "🇦🇪", "Malaysia": "🇲🇾", "Czech Republic": "🇨🇿",
+      "Poland": "🇵🇱", "Hungary": "🇭🇺", "India": "🇮🇳", "New Zealand": "🇳🇿"
+    };
+
+    // === Region Tabs ===
+    const regionTabs = document.querySelectorAll('.region-tab');
+    const regionContents = document.querySelectorAll('.region-content');
+
+    regionTabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        regionTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const region = this.dataset.region;
+        regionContents.forEach(c => c.classList.remove('active'));
+        document.getElementById('region-' + region).classList.add('active');
+        document.getElementById('svcSearch').value = '';
+        document.querySelectorAll('.svc-card, .country-card').forEach(c => c.style.display = '');
+        if (region === 'world') {
+          document.getElementById('countryGrid').style.display = '';
+          document.getElementById('countrySvcView').style.display = 'none';
+          document.getElementById('svcSearch').placeholder = 'Search countries...';
+        } else {
+          document.getElementById('svcSearch').placeholder = 'Search student services...';
+        }
+      });
+    });
+
+    // === Country Click → Services ===
+    document.querySelectorAll('.country-card').forEach(card => {
+      card.addEventListener('click', function () {
+        openCountryServices(this.dataset.country);
+      });
+    });
+
+    function openCountryServices(country) {
+      const grid = document.getElementById('countryGrid');
+      const view = document.getElementById('countrySvcView');
+      const title = document.getElementById('countrySvcTitle');
+      const container = document.getElementById('countrySvcCards');
+      const flag = countryFlags[country] || '🌍';
+
+      grid.style.display = 'none';
+      view.style.display = 'block';
+      title.innerHTML = flag + ' Student Services in ' + country;
+
+      const svcs = worldServices[country] || [];
+      container.innerHTML = '';
+
+      if (svcs.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:40px 0;">No data available yet.</p>';
+        return;
+      }
+
+      svcs.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'svc-card';
+        card.dataset.name = s.name;
+        card.innerHTML = `
+          <div class="svc-card-icon" style="color:${s.color}"><i class="fas ${s.icon}"></i></div>
+          <div class="svc-card-body">
+            <h4>${s.name}</h4>
+            <p class="svc-desc">${s.desc}</p>
+            <span class="view-btn">Learn more</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('svcSearch').placeholder = 'Search services in ' + country + '...';
+      document.getElementById('svcSearch').value = '';
+    }
+
+    // === Back to Countries ===
+    document.getElementById('backToCountries').addEventListener('click', function () {
+      document.getElementById('countryGrid').style.display = '';
+      document.getElementById('countrySvcView').style.display = 'none';
+      document.getElementById('svcSearch').placeholder = 'Search countries...';
+      document.getElementById('svcSearch').value = '';
+    });
+
+    // === Search ===
+    document.getElementById('svcSearch').addEventListener('input', function () {
+      const q = this.value.toLowerCase();
+      const activeRegion = document.querySelector('.region-content.active');
+
+      if (activeRegion.id === 'region-kz') {
+        activeRegion.querySelectorAll('.svc-card').forEach(card => {
+          const name = card.dataset.name.toLowerCase();
+          const title = card.querySelector('h4').textContent.toLowerCase();
+          card.style.display = (name.includes(q) || title.includes(q)) ? '' : 'none';
+        });
+      } else {
+        const svcView = document.getElementById('countrySvcView');
+        if (svcView.style.display !== 'none') {
+          svcView.querySelectorAll('.svc-card').forEach(card => {
+            const name = card.dataset.name.toLowerCase();
+            const title = card.querySelector('h4').textContent.toLowerCase();
+            card.style.display = (name.includes(q) || title.includes(q)) ? '' : 'none';
+          });
+        } else {
+          document.querySelectorAll('.country-card').forEach(card => {
+            const name = card.dataset.country.toLowerCase();
+            card.style.display = name.includes(q) ? '' : 'none';
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

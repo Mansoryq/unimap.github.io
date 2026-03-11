@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMap — Housing</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">🎓</div>
+        <span class="brand-name">UniMap</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </a>
+        <a href="universities.html">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </a>
+        <a href="results.html">
+          <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+          <span data-i18n="nav_results">Results</span>
+        </a>
+        <a href="jobs.html">
+          <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+          <span data-i18n="nav_jobs">Part-Time Jobs</span>
+        </a>
+        <a href="housing.html" class="active">
+          <span class="nav-icon"><i class="fas fa-building"></i></span>
+          <span data-i18n="nav_housing">Housing</span>
+        </a>
+        <a href="services.html">
+          <span class="nav-icon"><i class="fas fa-concierge-bell"></i></span>
+          <span data-i18n="nav_services">Student Services</span>
+        </a>
+        <a href="settings.html">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="page-title">Housing</span>
+        </div>
+        <div class="top-bar-right">
+          <span class="brand-link">zhask.co</span>
+          <div class="avatar"><i class="fas fa-user"></i></div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- Region Tabs -->
+        <div class="region-tabs fade-in">
+          <button class="region-tab active" data-region="kz">
+            <span class="region-flag">🇰🇿</span>
+            Kazakhstan
+          </button>
+          <button class="region-tab" data-region="world">
+            <span class="region-flag">🌍</span>
+            World Wide
+          </button>
+        </div>
+
+        <!-- Search -->
+        <div class="search-bar fade-in" style="margin-top:16px;">
+          <span class="search-icon"><i class="fas fa-search"></i></span>
+          <input type="text" id="housingSearch" placeholder="Search housing options...">
+        </div>
+
+        <!-- Kazakhstan Housing -->
+        <div class="region-content active" id="region-kz">
+          <div class="housing-cards fade-in" style="margin-top:20px;">
+
+            <div class="housing-card" data-name="Астана общежитие">
+              <div class="housing-card-img"><i class="fas fa-city"></i></div>
+              <div class="housing-card-body">
+                <h4>Астана</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 40 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">Общежития NU</span>
+                  <span class="htag">Студ. дома</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+            <div class="housing-card" data-name="Алматы общежитие">
+              <div class="housing-card-img"><i class="fas fa-mountain-city"></i></div>
+              <div class="housing-card-body">
+                <h4>Алматы</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 50 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">КазНУ общежитие</span>
+                  <span class="htag">KBTU housing</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+            <div class="housing-card" data-name="Караганда общежитие">
+              <div class="housing-card-img"><i class="fas fa-building"></i></div>
+              <div class="housing-card-body">
+                <h4>Караганда</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 30 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">КарУ общежитие</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+            <div class="housing-card" data-name="Шымкент общежитие">
+              <div class="housing-card-img"><i class="fas fa-sun"></i></div>
+              <div class="housing-card-body">
+                <h4>Шымкент</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 25 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">Общежития</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+            <div class="housing-card" data-name="Актобе общежитие">
+              <div class="housing-card-img"><i class="fas fa-building"></i></div>
+              <div class="housing-card-body">
+                <h4>Актобе</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 25 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">Общежития</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+            <div class="housing-card" data-name="Павлодар общежитие">
+              <div class="housing-card-img"><i class="fas fa-building"></i></div>
+              <div class="housing-card-body">
+                <h4>Павлодар</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 20 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">Общежития</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+            <div class="housing-card" data-name="Семей общежитие">
+              <div class="housing-card-img"><i class="fas fa-building"></i></div>
+              <div class="housing-card-body">
+                <h4>Семей</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 20 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">Общежития</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+            <div class="housing-card" data-name="Атырау общежитие">
+              <div class="housing-card-img"><i class="fas fa-oil-well"></i></div>
+              <div class="housing-card-body">
+                <h4>Атырау</h4>
+                <div class="housing-meta">
+                  <span><i class="fas fa-home"></i> Общежития, квартиры</span>
+                  <span class="housing-price">от 35 000 ₸/мес</span>
+                </div>
+                <div class="housing-tags">
+                  <span class="htag">Общежития</span>
+                  <span class="htag">Аренда</span>
+                </div>
+                <span class="view-btn">Смотреть варианты</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- World Wide Countries -->
+        <div class="region-content" id="region-world">
+
+          <!-- Country Grid -->
+          <div class="country-grid fade-in" id="countryGrid" style="margin-top:20px;">
+            <div class="country-card" data-country="United States">
+              <div class="country-flag">🇺🇸</div>
+              <div class="country-name">United States</div>
+            </div>
+            <div class="country-card" data-country="United Kingdom">
+              <div class="country-flag">🇬🇧</div>
+              <div class="country-name">United Kingdom</div>
+            </div>
+            <div class="country-card" data-country="Canada">
+              <div class="country-flag">🇨🇦</div>
+              <div class="country-name">Canada</div>
+            </div>
+            <div class="country-card" data-country="Germany">
+              <div class="country-flag">🇩🇪</div>
+              <div class="country-name">Germany</div>
+            </div>
+            <div class="country-card" data-country="France">
+              <div class="country-flag">🇫🇷</div>
+              <div class="country-name">France</div>
+            </div>
+            <div class="country-card" data-country="Australia">
+              <div class="country-flag">🇦🇺</div>
+              <div class="country-name">Australia</div>
+            </div>
+            <div class="country-card" data-country="Japan">
+              <div class="country-flag">🇯🇵</div>
+              <div class="country-name">Japan</div>
+            </div>
+            <div class="country-card" data-country="South Korea">
+              <div class="country-flag">🇰🇷</div>
+              <div class="country-name">South Korea</div>
+            </div>
+            <div class="country-card" data-country="China">
+              <div class="country-flag">🇨🇳</div>
+              <div class="country-name">China</div>
+            </div>
+            <div class="country-card" data-country="Turkey">
+              <div class="country-flag">🇹🇷</div>
+              <div class="country-name">Turkey</div>
+            </div>
+            <div class="country-card" data-country="Russia">
+              <div class="country-flag">🇷🇺</div>
+              <div class="country-name">Russia</div>
+            </div>
+            <div class="country-card" data-country="Netherlands">
+              <div class="country-flag">🇳🇱</div>
+              <div class="country-name">Netherlands</div>
+            </div>
+            <div class="country-card" data-country="Switzerland">
+              <div class="country-flag">🇨🇭</div>
+              <div class="country-name">Switzerland</div>
+            </div>
+            <div class="country-card" data-country="Singapore">
+              <div class="country-flag">🇸🇬</div>
+              <div class="country-name">Singapore</div>
+            </div>
+            <div class="country-card" data-country="Sweden">
+              <div class="country-flag">🇸🇪</div>
+              <div class="country-name">Sweden</div>
+            </div>
+            <div class="country-card" data-country="Italy">
+              <div class="country-flag">🇮🇹</div>
+              <div class="country-name">Italy</div>
+            </div>
+            <div class="country-card" data-country="Spain">
+              <div class="country-flag">🇪🇸</div>
+              <div class="country-name">Spain</div>
+            </div>
+            <div class="country-card" data-country="UAE">
+              <div class="country-flag">🇦🇪</div>
+              <div class="country-name">UAE</div>
+            </div>
+            <div class="country-card" data-country="Malaysia">
+              <div class="country-flag">🇲🇾</div>
+              <div class="country-name">Malaysia</div>
+            </div>
+            <div class="country-card" data-country="Czech Republic">
+              <div class="country-flag">🇨🇿</div>
+              <div class="country-name">Czech Republic</div>
+            </div>
+            <div class="country-card" data-country="Poland">
+              <div class="country-flag">🇵🇱</div>
+              <div class="country-name">Poland</div>
+            </div>
+            <div class="country-card" data-country="Hungary">
+              <div class="country-flag">🇭🇺</div>
+              <div class="country-name">Hungary</div>
+            </div>
+            <div class="country-card" data-country="India">
+              <div class="country-flag">🇮🇳</div>
+              <div class="country-name">India</div>
+            </div>
+            <div class="country-card" data-country="New Zealand">
+              <div class="country-flag">🇳🇿</div>
+              <div class="country-name">New Zealand</div>
+            </div>
+          </div>
+
+          <!-- Country Housing drill-down -->
+          <div id="countryHousingView" style="display:none; margin-top:20px;">
+            <button class="back-to-countries" id="backToCountries">
+              <i class="fas fa-arrow-left"></i>
+              <span>Back to countries</span>
+            </button>
+            <h3 class="country-uni-title" id="countryHousingTitle"></h3>
+            <div class="housing-cards fade-in" id="countryHousingCards"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-items">
+        <button class="bottom-nav-item" onclick="location.href='dashboard.html'">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='universities.html'">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='results.html'">
+          <span class="nav-icon"><i class="fas fa-folder-open"></i></span>
+          <span data-i18n="nav_portfolio">Portfolio</span>
+        </button>
+        <button class="bottom-nav-item">
+          <span class="nav-icon"><i class="fas fa-bell"></i></span>
+          <span data-i18n="nav_notifications">Notifications</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='settings.html'">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    // === Housing data by country ===
+    const worldHousing = {
+      "United States": [
+        { name: "On-Campus Dormitories", type: "Общежитие", price: "from $800/mo", desc: "University dorms with meal plans, shared rooms" },
+        { name: "Off-Campus Apartments", type: "Квартира", price: "from $1,200/mo", desc: "Studios and shared apartments near campuses" },
+        { name: "Homestay Programs", type: "Хостинг", price: "from $900/mo", desc: "Live with an American family, meals included" },
+        { name: "Student Co-Living Spaces", type: "Коливинг", price: "from $700/mo", desc: "Shared living with other students, furnished" }
+      ],
+      "United Kingdom": [
+        { name: "University Halls of Residence", type: "Общежитие", price: "from £500/mo", desc: "En-suite or shared bathroom, catered or self-catered" },
+        { name: "Private Student Accommodation", type: "Квартира", price: "from £700/mo", desc: "Purpose-built student housing with amenities" },
+        { name: "Shared Houses", type: "Аренда", price: "from £400/mo", desc: "Shared terraced houses typical for UK students" },
+        { name: "Homestay", type: "Хостинг", price: "from £600/mo", desc: "British family hosting, great for language practice" }
+      ],
+      "Canada": [
+        { name: "University Residences", type: "Общежитие", price: "from CAD 700/mo", desc: "On-campus residence halls with meal plans" },
+        { name: "Off-Campus Rentals", type: "Квартира", price: "from CAD 900/mo", desc: "Apartments and basement suites near universities" },
+        { name: "Homestay Programs", type: "Хостинг", price: "from CAD 800/mo", desc: "Canadian family hosting with meals" },
+        { name: "Co-op Housing", type: "Коливинг", price: "from CAD 500/mo", desc: "Student-run cooperative housing" }
+      ],
+      "Germany": [
+        { name: "Studentenwohnheim (Student Dorm)", type: "Общежитие", price: "from €250/mo", desc: "Affordable dorms managed by Studentenwerk" },
+        { name: "WG (Wohngemeinschaft)", type: "Коливинг", price: "from €350/mo", desc: "Shared flat — most popular option in Germany" },
+        { name: "Private Apartments", type: "Квартира", price: "from €500/mo", desc: "Studio or 1-bedroom, often unfurnished" },
+        { name: "Homestay", type: "Хостинг", price: "from €400/mo", desc: "Live with a German family" }
+      ],
+      "France": [
+        { name: "Résidence CROUS", type: "Общежитие", price: "from €200/mo", desc: "Government-subsidized student residences" },
+        { name: "Private Residences", type: "Квартира", price: "from €500/mo", desc: "Private student housing, furnished studios" },
+        { name: "Colocation", type: "Коливинг", price: "from €350/mo", desc: "Shared apartments, very popular in Paris" },
+        { name: "Foyer", type: "Общежитие", price: "from €300/mo", desc: "Youth residences with community activities" }
+      ],
+      "Australia": [
+        { name: "University Colleges", type: "Общежитие", price: "from AUD 250/wk", desc: "On-campus residential colleges with meals" },
+        { name: "Purpose-Built Student Housing", type: "Квартира", price: "from AUD 300/wk", desc: "Modern student apartments like Iglu, Scape" },
+        { name: "Share Houses", type: "Коливинг", price: "from AUD 180/wk", desc: "Shared houses, popular for budget living" },
+        { name: "Homestay", type: "Хостинг", price: "from AUD 280/wk", desc: "Australian family hosting with meals" }
+      ],
+      "Japan": [
+        { name: "University Dormitories (学生寮)", type: "Общежитие", price: "from ¥30,000/mo", desc: "Affordable on-campus housing" },
+        { name: "Guest Houses / Share Houses", type: "Коливинг", price: "from ¥40,000/mo", desc: "Furnished shared living, no key money" },
+        { name: "Private Apartments (アパート)", type: "Квартира", price: "from ¥50,000/mo", desc: "Small apartments, key money may apply" },
+        { name: "Homestay", type: "Хостинг", price: "from ¥60,000/mo", desc: "Japanese family hosting" }
+      ],
+      "South Korea": [
+        { name: "University Dormitories (기숙사)", type: "Общежитие", price: "from ₩200,000/mo", desc: "On-campus shared rooms, very affordable" },
+        { name: "Goshiwon (고시원)", type: "Комнаты", price: "from ₩300,000/mo", desc: "Small private rooms, utilities included" },
+        { name: "Officetel", type: "Квартира", price: "from ₩500,000/mo", desc: "Studio apartments with amenities" },
+        { name: "Hasukjip (하숙집)", type: "Хостинг", price: "from ₩400,000/mo", desc: "Korean family boarding with meals" }
+      ],
+      "China": [
+        { name: "University Dormitories", type: "Общежитие", price: "from ¥800/mo", desc: "On-campus shared dorms, 2-4 per room" },
+        { name: "Off-Campus Apartments", type: "Квартира", price: "from ¥2,000/mo", desc: "Private or shared apartments near campus" },
+        { name: "International Student Dorms", type: "Общежитие", price: "from ¥1,500/mo", desc: "Better facilities for international students" },
+        { name: "Shared Apartments", type: "Коливинг", price: "from ¥1,200/mo", desc: "Co-living spaces in major cities" }
+      ],
+      "Turkey": [
+        { name: "KYK Devlet Yurdu", type: "Общежитие", price: "from ₺500/mo", desc: "Government student dormitories" },
+        { name: "Private Yurt (Özel Yurt)", type: "Общежитие", price: "from ₺2,000/mo", desc: "Private dorms with better amenities" },
+        { name: "Shared Apartments", type: "Коливинг", price: "from ₺3,000/mo", desc: "Shared flats in student neighborhoods" },
+        { name: "Studio Apartments", type: "Квартира", price: "from ₺5,000/mo", desc: "Private studio apartments" }
+      ],
+      "Russia": [
+        { name: "Общежитие университета", type: "Общежитие", price: "от ₽1,500/мес", desc: "Университетские общежития, 2-4 места" },
+        { name: "Съёмные квартиры", type: "Квартира", price: "от ₽20,000/мес", desc: "Аренда квартир рядом с вузом" },
+        { name: "Коммунальные квартиры", type: "Коливинг", price: "от ₽10,000/мес", desc: "Совместная аренда, по комнатам" },
+        { name: "Хостелы для студентов", type: "Хостел", price: "от ₽8,000/мес", desc: "Долгосрочное проживание в хостелах" }
+      ],
+      "Netherlands": [
+        { name: "University Housing", type: "Общежитие", price: "from €400/mo", desc: "Campus-based student housing" },
+        { name: "SSH Student Housing", type: "Квартира", price: "from €350/mo", desc: "Social student housing organizations" },
+        { name: "Private Rooms (Kamers)", type: "Комнаты", price: "from €500/mo", desc: "Rooms in shared houses" },
+        { name: "Anti-Kraak (Anti-Squat)", type: "Коливинг", price: "from €200/mo", desc: "Cheap temporary living in empty buildings" }
+      ],
+      "Switzerland": [
+        { name: "University Residences", type: "Общежитие", price: "from CHF 500/mo", desc: "On-campus student residences" },
+        { name: "WG (Shared Flat)", type: "Коливинг", price: "from CHF 600/mo", desc: "Shared apartments, common in Swiss cities" },
+        { name: "Private Studio", type: "Квартира", price: "from CHF 900/mo", desc: "Studio apartments near campus" }
+      ],
+      "Singapore": [
+        { name: "University Halls", type: "Общежитие", price: "from SGD 300/mo", desc: "On-campus residential halls" },
+        { name: "HDB Room Rental", type: "Комнаты", price: "from SGD 600/mo", desc: "Renting a room in public housing" },
+        { name: "Private Condos", type: "Квартира", price: "from SGD 1,200/mo", desc: "Shared condo rooms near universities" }
+      ],
+      "Sweden": [
+        { name: "Student Corridor Room", type: "Общежитие", price: "from SEK 3,500/mo", desc: "Private room with shared kitchen" },
+        { name: "Student Apartment", type: "Квартира", price: "from SEK 5,000/mo", desc: "Studio with own kitchen and bathroom" },
+        { name: "Shared Housing", type: "Коливинг", price: "from SEK 3,000/mo", desc: "Shared apartments through housing agencies" }
+      ],
+      "Italy": [
+        { name: "University Residence (Casa dello Studente)", type: "Общежитие", price: "from €200/mo", desc: "Public student residences via DSU" },
+        { name: "Private Rooms", type: "Комнаты", price: "from €350/mo", desc: "Rooms in shared apartments" },
+        { name: "Private Apartments", type: "Квартира", price: "from €500/mo", desc: "Studio or one-bedroom apartments" }
+      ],
+      "Spain": [
+        { name: "Residencia Universitaria", type: "Общежитие", price: "from €400/mo", desc: "University student residences" },
+        { name: "Piso Compartido", type: "Коливинг", price: "from €300/mo", desc: "Shared flats — most popular option" },
+        { name: "Colegio Mayor", type: "Общежитие", price: "from €600/mo", desc: "Premium student halls with activities" },
+        { name: "Homestay", type: "Хостинг", price: "from €500/mo", desc: "Spanish family hosting with meals" }
+      ],
+      "UAE": [
+        { name: "University Accommodation", type: "Общежитие", price: "from AED 2,000/mo", desc: "On-campus student housing" },
+        { name: "Shared Apartments", type: "Коливинг", price: "from AED 1,500/mo", desc: "Shared flats in student areas" },
+        { name: "Studio Apartments", type: "Квартира", price: "from AED 3,000/mo", desc: "Private studio near universities" },
+        { name: "Student Villages", type: "Общежитие", price: "from AED 2,500/mo", desc: "Purpose-built student communities" }
+      ],
+      "Malaysia": [
+        { name: "University Hostels", type: "Общежитие", price: "from MYR 300/mo", desc: "On-campus hostels, very affordable" },
+        { name: "Off-Campus Rooms", type: "Комнаты", price: "from MYR 500/mo", desc: "Rooms near university" },
+        { name: "Condominiums", type: "Квартира", price: "from MYR 800/mo", desc: "Shared condo rooms with amenities" }
+      ],
+      "Czech Republic": [
+        { name: "Kolej (University Dorm)", type: "Общежитие", price: "from CZK 3,000/mo", desc: "University dormitories, shared rooms" },
+        { name: "Private Rooms", type: "Комнаты", price: "from CZK 6,000/mo", desc: "Rooms in shared apartments" },
+        { name: "Apartments", type: "Квартира", price: "from CZK 10,000/mo", desc: "Studio apartments in Prague/Brno" }
+      ],
+      "Poland": [
+        { name: "Akademik (Student Dorm)", type: "Общежитие", price: "from PLN 400/mo", desc: "University dormitories, very affordable" },
+        { name: "Private Rooms", type: "Комнаты", price: "from PLN 800/mo", desc: "Rooms in shared apartments" },
+        { name: "Studio Apartments", type: "Квартира", price: "from PLN 1,500/mo", desc: "Private studios in major cities" }
+      ],
+      "Hungary": [
+        { name: "Kollégium (University Dorm)", type: "Общежитие", price: "from HUF 30,000/mo", desc: "University dormitories" },
+        { name: "Shared Apartments", type: "Коливинг", price: "from HUF 60,000/mo", desc: "Shared flats in Budapest" },
+        { name: "Private Apartments", type: "Квартира", price: "from HUF 100,000/mo", desc: "Studios and one-bedrooms" }
+      ],
+      "India": [
+        { name: "University Hostels", type: "Общежитие", price: "from ₹5,000/mo", desc: "On-campus hostels, subsidized rates" },
+        { name: "PG (Paying Guest)", type: "Комнаты", price: "from ₹8,000/mo", desc: "Private rooms with meals included" },
+        { name: "Shared Apartments", type: "Коливинг", price: "from ₹6,000/mo", desc: "Co-living spaces near campus" },
+        { name: "Private Flats", type: "Квартира", price: "from ₹12,000/mo", desc: "1BHK apartments near universities" }
+      ],
+      "New Zealand": [
+        { name: "University Halls of Residence", type: "Общежитие", price: "from NZD 250/wk", desc: "On-campus catered or self-catered halls" },
+        { name: "Flats (Flatting)", type: "Коливинг", price: "from NZD 180/wk", desc: "Shared houses — kiwi student culture" },
+        { name: "Homestay", type: "Хостинг", price: "from NZD 270/wk", desc: "NZ family hosting with meals" },
+        { name: "Private Apartments", type: "Квартира", price: "from NZD 300/wk", desc: "Studio apartments near campus" }
+      ]
+    };
+
+    const countryFlags = {
+      "United States": "🇺🇸", "United Kingdom": "🇬🇧", "Canada": "🇨🇦", "Germany": "🇩🇪",
+      "France": "🇫🇷", "Australia": "🇦🇺", "Japan": "🇯🇵", "South Korea": "🇰🇷",
+      "China": "🇨🇳", "Turkey": "🇹🇷", "Russia": "🇷🇺", "Netherlands": "🇳🇱",
+      "Switzerland": "🇨🇭", "Singapore": "🇸🇬", "Sweden": "🇸🇪", "Italy": "🇮🇹",
+      "Spain": "🇪🇸", "UAE": "🇦🇪", "Malaysia": "🇲🇾", "Czech Republic": "🇨🇿",
+      "Poland": "🇵🇱", "Hungary": "🇭🇺", "India": "🇮🇳", "New Zealand": "🇳🇿"
+    };
+
+    const typeIcons = {
+      "Общежитие": "fa-bed", "Квартира": "fa-building", "Коливинг": "fa-people-roof",
+      "Хостинг": "fa-house-user", "Комнаты": "fa-door-open", "Хостел": "fa-hotel", "Аренда": "fa-key"
+    };
+
+    const typeColors = {
+      "Общежитие": "#6c5ce7", "Квартира": "#00b894", "Коливинг": "#fdcb6e",
+      "Хостинг": "#e17055", "Комнаты": "#74b9ff", "Хостел": "#a29bfe", "Аренда": "#55efc4"
+    };
+
+    // === Region Tabs ===
+    const regionTabs = document.querySelectorAll('.region-tab');
+    const regionContents = document.querySelectorAll('.region-content');
+
+    regionTabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        regionTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const region = this.dataset.region;
+        regionContents.forEach(c => c.classList.remove('active'));
+        document.getElementById('region-' + region).classList.add('active');
+        document.getElementById('housingSearch').value = '';
+        document.querySelectorAll('.housing-card, .country-card').forEach(c => c.style.display = '');
+        if (region === 'world') {
+          document.getElementById('countryGrid').style.display = '';
+          document.getElementById('countryHousingView').style.display = 'none';
+          document.getElementById('housingSearch').placeholder = 'Search countries...';
+        } else {
+          document.getElementById('housingSearch').placeholder = 'Search housing options...';
+        }
+      });
+    });
+
+    // === Country Click → Housing ===
+    document.querySelectorAll('.country-card').forEach(card => {
+      card.addEventListener('click', function () {
+        openCountryHousing(this.dataset.country);
+      });
+    });
+
+    function openCountryHousing(country) {
+      const grid = document.getElementById('countryGrid');
+      const view = document.getElementById('countryHousingView');
+      const title = document.getElementById('countryHousingTitle');
+      const container = document.getElementById('countryHousingCards');
+      const flag = countryFlags[country] || '🌍';
+
+      grid.style.display = 'none';
+      view.style.display = 'block';
+      title.innerHTML = flag + ' Housing in ' + country;
+
+      const options = worldHousing[country] || [];
+      container.innerHTML = '';
+
+      if (options.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:40px 0;">No housing data available yet.</p>';
+        return;
+      }
+
+      options.forEach(h => {
+        const icon = typeIcons[h.type] || 'fa-home';
+        const color = typeColors[h.type] || '#6c5ce7';
+        const card = document.createElement('div');
+        card.className = 'housing-card';
+        card.dataset.name = h.name + ' ' + h.type;
+        card.innerHTML = `
+          <div class="housing-card-img" style="color:${color}"><i class="fas ${icon}"></i></div>
+          <div class="housing-card-body">
+            <h4>${h.name}</h4>
+            <div class="housing-meta">
+              <span><i class="fas fa-tag" style="color:${color}"></i> ${h.type}</span>
+              <span class="housing-price">${h.price}</span>
+            </div>
+            <p class="housing-desc">${h.desc}</p>
+            <span class="view-btn">View details</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('housingSearch').placeholder = 'Search housing in ' + country + '...';
+      document.getElementById('housingSearch').value = '';
+    }
+
+    // === Back to Countries ===
+    document.getElementById('backToCountries').addEventListener('click', function () {
+      document.getElementById('countryGrid').style.display = '';
+      document.getElementById('countryHousingView').style.display = 'none';
+      document.getElementById('housingSearch').placeholder = 'Search countries...';
+      document.getElementById('housingSearch').value = '';
+    });
+
+    // === Search ===
+    document.getElementById('housingSearch').addEventListener('input', function () {
+      const q = this.value.toLowerCase();
+      const activeRegion = document.querySelector('.region-content.active');
+
+      if (activeRegion.id === 'region-kz') {
+        activeRegion.querySelectorAll('.housing-card').forEach(card => {
+          const name = card.dataset.name.toLowerCase();
+          const title = card.querySelector('h4').textContent.toLowerCase();
+          card.style.display = (name.includes(q) || title.includes(q)) ? '' : 'none';
+        });
+      } else {
+        const uniView = document.getElementById('countryHousingView');
+        if (uniView.style.display !== 'none') {
+          uniView.querySelectorAll('.housing-card').forEach(card => {
+            const name = card.dataset.name.toLowerCase();
+            const title = card.querySelector('h4').textContent.toLowerCase();
+            card.style.display = (name.includes(q) || title.includes(q)) ? '' : 'none';
+          });
+        } else {
+          document.querySelectorAll('.country-card').forEach(card => {
+            const name = card.dataset.country.toLowerCase();
+            card.style.display = name.includes(q) ? '' : 'none';
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMap — Register</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-container fade-in">
+      <div class="login-brand">zhask.co</div>
+
+      <div class="login-icon">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30, 100) rotate(-20)">
+            <rect x="0" y="0" width="120" height="40" rx="20" ry="20" fill="#f0e6d3" stroke="#d4c5a9" stroke-width="2"/>
+            <rect x="10" y="5" width="100" height="30" rx="15" ry="15" fill="#faf3e6"/>
+            <circle cx="20" cy="20" r="14" fill="#e74c3c"/>
+            <circle cx="20" cy="20" r="9" fill="#c0392b"/>
+            <path d="M14 34 L10 52 L20 46 L30 52 L26 34" fill="#e74c3c"/>
+            <circle cx="20" cy="20" r="5" fill="#f39c12"/>
+          </g>
+          <g transform="translate(50, 20)">
+            <polygon points="50,10 110,40 50,60 -10,40" fill="#2c3e50"/>
+            <polygon points="50,10 110,40 50,50 -10,30" fill="#34495e"/>
+            <rect x="30" y="55" width="40" height="8" rx="2" fill="#2c3e50"/>
+            <line x1="110" y1="40" x2="120" y2="75" stroke="#f39c12" stroke-width="2.5"/>
+            <circle cx="120" cy="78" r="4" fill="#f39c12"/>
+            <rect x="117" y="82" width="6" height="15" rx="3" fill="#f39c12"/>
+          </g>
+        </svg>
+      </div>
+
+      <h1 class="login-title" data-i18n="register_title">Create Account</h1>
+
+      <!-- Error/Success Messages -->
+      <div class="auth-message" id="authMessage" style="display:none;"></div>
+
+      <form class="login-form" id="registerForm">
+        <input type="text" class="login-input" id="regName" placeholder="Ваше имя" required minlength="2">
+        <input type="email" class="login-input" id="regEmail" placeholder="Email" required>
+        <input type="password" class="login-input" id="regPassword" placeholder="Пароль (мин. 6 символов)" required minlength="6">
+        <input type="password" class="login-input" id="regPasswordConfirm" placeholder="Подтвердите пароль" required minlength="6">
+        <button type="submit" class="login-btn" id="regBtn">
+          <span class="btn-text" data-i18n="register_button">Register</span>
+          <span class="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i></span>
+        </button>
+      </form>
+
+      <div class="auth-links">
+        <span data-i18n="register_have_account">Already have an account?</span>
+        <a href="index.html" class="auth-link" data-i18n="register_login_link">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script>
+    const form = document.getElementById('registerForm');
+    const msgEl = document.getElementById('authMessage');
+    const btn = document.getElementById('regBtn');
+
+    function showMsg(text, isError) {
+      msgEl.textContent = text;
+      msgEl.className = 'auth-message ' + (isError ? 'error' : 'success');
+      msgEl.style.display = 'block';
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('regName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value;
+      const passwordConfirm = document.getElementById('regPasswordConfirm').value;
+
+      msgEl.style.display = 'none';
+
+      if (password !== passwordConfirm) {
+        showMsg('Пароли не совпадают', true);
+        return;
+      }
+
+      // Loading state
+      btn.disabled = true;
+      btn.querySelector('.btn-text').style.display = 'none';
+      btn.querySelector('.btn-loader').style.display = 'inline';
+
+      try {
+        const res = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          localStorage.setItem('unimap_token', data.token);
+          localStorage.setItem('unimap_user', JSON.stringify(data.user));
+          showMsg('Регистрация успешна! Перенаправление...', false);
+          setTimeout(() => { window.location.href = 'dashboard.html'; }, 800);
+        } else {
+          showMsg(data.error || 'Ошибка регистрации', true);
+        }
+      } catch (err) {
+        showMsg('Ошибка сервера. Попробуйте позже.', true);
+      } finally {
+        btn.disabled = false;
+        btn.querySelector('.btn-text').style.display = '';
+        btn.querySelector('.btn-loader').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMap — Results & Academic Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">🎓</div>
+        <span class="brand-name">UniMap</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </a>
+        <a href="universities.html">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </a>
+        <a href="results.html" class="active">
+          <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+          <span data-i18n="nav_results">Results</span>
+        </a>
+        <a href="jobs.html">
+          <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+          <span data-i18n="nav_jobs">Part-Time Jobs</span>
+        </a>
+        <a href="housing.html">
+          <span class="nav-icon"><i class="fas fa-building"></i></span>
+          <span data-i18n="nav_housing">Housing</span>
+        </a>
+        <a href="services.html">
+          <span class="nav-icon"><i class="fas fa-concierge-bell"></i></span>
+          <span data-i18n="nav_services">Student Services</span>
+        </a>
+        <a href="settings.html">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="page-title">Your Results & Academic Profile</span>
+        </div>
+        <div class="top-bar-right">
+          <span class="brand-link">zhask.co</span>
+          <div class="avatar"><i class="fas fa-user"></i></div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- Overview -->
+        <div class="results-overview fade-in">
+          <h2>Overview</h2>
+          <p>Add your academic scores and achievements to help UniMap match you with the best universities.</p>
+        </div>
+
+        <!-- Test Scores -->
+        <div class="scores-section fade-in">
+          <div class="scores-header">
+            <h3>Test Scores</h3>
+          </div>
+
+          <!-- Added scores list -->
+          <div id="testScoresList" class="test-scores-list">
+            <div class="empty-state" id="scoresEmptyState">
+              <i class="fas fa-clipboard-list" style="font-size:2rem;color:var(--text-muted);margin-bottom:10px;"></i>
+              <p style="color:var(--text-muted);font-size:0.9rem;">Нет добавленных тестов. Нажмите кнопку ниже чтобы добавить.</p>
+            </div>
+          </div>
+
+          <!-- Add test score button -->
+          <div class="add-achievement" id="addTestScoreBtn">
+            <i class="fas fa-plus-circle"></i>
+            <span>Add test score</span>
+          </div>
+
+          <!-- Choose test type panel -->
+          <div class="inline-panel hidden" id="panelChooseTest">
+            <div class="inline-panel-header">
+              <span class="inline-panel-title">Выберите тест</span>
+              <button class="inline-panel-close" id="closeChooseTest"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="inline-type-cards" id="testTypeCards">
+              <div class="inline-type-card" data-test="IELTS" data-max="9" data-step="0.5">
+                <div class="inline-type-icon"><i class="fas fa-language"></i></div>
+                <div class="inline-type-text">
+                  <h4>IELTS</h4>
+                  <p>Band Score 0–9</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-test="TOEFL" data-max="120" data-step="1">
+                <div class="inline-type-icon"><i class="fas fa-language"></i></div>
+                <div class="inline-type-text">
+                  <h4>TOEFL</h4>
+                  <p>Score 0–120</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-test="Duolingo" data-max="160" data-step="1">
+                <div class="inline-type-icon"><i class="fas fa-globe"></i></div>
+                <div class="inline-type-text">
+                  <h4>Duolingo</h4>
+                  <p>Score 0–160</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-test="SAT" data-max="1600" data-step="10">
+                <div class="inline-type-icon"><i class="fas fa-pencil-alt"></i></div>
+                <div class="inline-type-text">
+                  <h4>SAT</h4>
+                  <p>Score 0–1600</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-test="ACT" data-max="36" data-step="1">
+                <div class="inline-type-icon"><i class="fas fa-pencil-alt"></i></div>
+                <div class="inline-type-text">
+                  <h4>ACT</h4>
+                  <p>Score 0–36</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-test="GPA" data-max="4.0" data-step="0.01">
+                <div class="inline-type-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="inline-type-text">
+                  <h4>GPA</h4>
+                  <p>Scale 0–4.0</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-test="ЕНТ" data-max="140" data-step="1">
+                <div class="inline-type-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="inline-type-text">
+                  <h4>ЕНТ</h4>
+                  <p>Score 0–140</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- ЕНТ Subject Selection Panel -->
+          <div class="inline-panel hidden" id="panelEntSubjects">
+            <div class="inline-panel-header">
+              <button class="inline-panel-back" id="backFromEntSubjects"><i class="fas fa-arrow-left"></i></button>
+              <span class="inline-panel-title">ЕНТ — Выберите предметы</span>
+              <button class="inline-panel-close" id="closeEntSubjects"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="inline-panel-body">
+              <label class="inline-label">Обязательные предметы</label>
+              <div class="ent-mandatory-subjects">
+                <div class="ent-subject-chip fixed"><i class="fas fa-calculator"></i> Мат. грамотность</div>
+                <div class="ent-subject-chip fixed"><i class="fas fa-book-reader"></i> Грамотность чтения</div>
+                <div class="ent-subject-chip fixed"><i class="fas fa-landmark"></i> История Казахстана</div>
+              </div>
+
+              <label class="inline-label" style="margin-top:18px;">Профильные предметы <span style="color:var(--accent);">(выберите комбинацию)</span></label>
+              <div class="ent-profile-combos" id="entProfileCombos">
+                <div class="ent-combo-card" data-combo="math-physics">
+                  <div class="ent-combo-icon"><i class="fas fa-atom"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>Математика + Физика</h4>
+                    <p>Инженерия, IT, Технические науки</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+                <div class="ent-combo-card" data-combo="math-informatics">
+                  <div class="ent-combo-icon"><i class="fas fa-laptop-code"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>Математика + Информатика</h4>
+                    <p>Программирование, Кибербезопасность</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+                <div class="ent-combo-card" data-combo="biology-chemistry">
+                  <div class="ent-combo-icon"><i class="fas fa-flask"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>Биология + Химия</h4>
+                    <p>Медицина, Фармацевтика, Биотехнологии</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+                <div class="ent-combo-card" data-combo="geography-english">
+                  <div class="ent-combo-icon"><i class="fas fa-globe-americas"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>География + Англ. язык</h4>
+                    <p>Международные отношения, Туризм</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+                <div class="ent-combo-card" data-combo="history-english">
+                  <div class="ent-combo-icon"><i class="fas fa-balance-scale"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>Всемирная история + Англ. язык</h4>
+                    <p>Юриспруденция, Политология</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+                <div class="ent-combo-card" data-combo="history-geography">
+                  <div class="ent-combo-icon"><i class="fas fa-book"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>Всемирная история + География</h4>
+                    <p>Педагогика, Социальные науки</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+                <div class="ent-combo-card" data-combo="biology-geography">
+                  <div class="ent-combo-icon"><i class="fas fa-seedling"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>Биология + География</h4>
+                    <p>Экология, Сельское хозяйство</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+                <div class="ent-combo-card" data-combo="language-literature">
+                  <div class="ent-combo-icon"><i class="fas fa-feather-alt"></i></div>
+                  <div class="ent-combo-text">
+                    <h4>Казахский язык + Казахская литература</h4>
+                    <p>Филология, Журналистика</p>
+                  </div>
+                  <i class="fas fa-check-circle ent-combo-check"></i>
+                </div>
+              </div>
+
+              <button class="inline-submit-btn ent-next-btn" id="entNextToScore" disabled>
+                <i class="fas fa-arrow-right"></i> Далее — указать балл
+              </button>
+            </div>
+          </div>
+
+          <!-- Score input panel -->
+          <div class="inline-panel hidden" id="panelScoreInput">
+            <div class="inline-panel-header">
+              <button class="inline-panel-back" id="backFromScore"><i class="fas fa-arrow-left"></i></button>
+              <span class="inline-panel-title" id="scoreInputTitle">Score</span>
+              <button class="inline-panel-close" id="closeScoreInput"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="inline-panel-body">
+              <!-- ЕНТ selected combo display -->
+              <div class="ent-selected-combo hidden" id="entSelectedCombo">
+                <i class="fas fa-check-circle" style="color:var(--accent)"></i>
+                <span id="entSelectedComboText"></span>
+              </div>
+              <label class="inline-label">Введите балл</label>
+              <input type="number" class="inline-input" id="testScoreValue" placeholder="0">
+              <p class="score-hint" id="scoreHint"></p>
+              <label class="inline-label">Загрузить подтверждение <span style="color:var(--text-muted);font-weight:400;text-transform:none;">— необязательно</span></label>
+              <label class="inline-file-label" id="testFileLabel">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Выбрать файл</span>
+                <input type="file" id="testFile" accept=".pdf,.jpg,.jpeg,.png" hidden>
+              </label>
+              <button class="inline-submit-btn" id="submitTestScore"><i class="fas fa-plus"></i> Добавить</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Admission Chances -->
+        <div class="ai-chances-section fade-in">
+          <div class="ai-chances-header">
+            <h2 data-i18n="ai_chances_title">🤖 AI Admission Prediction</h2>
+            <p class="ai-chances-desc" data-i18n="ai_chances_desc">Click the button below for AI to analyze your scores and show admission chances</p>
+          </div>
+
+          <button class="ai-analyze-btn" id="aiAnalyzeBtn">
+            <i class="fas fa-magic"></i>
+            <span data-i18n="ai_chances_btn">Analyze Chances</span>
+          </button>
+
+          <!-- Loading state -->
+          <div class="ai-loading hidden" id="aiLoading">
+            <div class="ai-loading-spinner"></div>
+            <p data-i18n="ai_chances_loading">AI is analyzing your scores...</p>
+          </div>
+
+          <!-- Error message -->
+          <div class="ai-error hidden" id="aiError">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="aiErrorText"></span>
+          </div>
+
+          <!-- Results -->
+          <div class="ai-results hidden" id="aiResults">
+            <!-- Kazakhstan Block -->
+            <div class="ai-block">
+              <h3 class="ai-block-title" data-i18n="ai_chances_kz">🇰🇿 Kazakhstan</h3>
+              <div class="ai-uni-list" id="aiKzList"></div>
+            </div>
+
+            <!-- World Wide Block -->
+            <div class="ai-block">
+              <h3 class="ai-block-title" data-i18n="ai_chances_world">🌍 World Wide</h3>
+              <div class="ai-uni-list" id="aiWorldList"></div>
+            </div>
+
+            <div class="ai-powered">
+              <i class="fas fa-robot"></i>
+              <span data-i18n="ai_powered">Analysis powered by AI (Ollama)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements & Awards -->
+        <div class="achievements-section fade-in">
+          <div class="achievements-header">
+            <h2>Achievements & Awards</h2>
+            <div class="profile-completion">
+              <span>Profile completion:</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 65%;"></div>
+              </div>
+              <span class="progress-dot"></span>
+            </div>
+          </div>
+
+          <div class="achievement-cards">
+            <div class="ach-card">
+              <div class="ach-card-icon">🏅</div>
+              <div class="ach-card-content">
+                <h4>Olympiads</h4>
+                <p>Add achievement +<br>Upload certificate</p>
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-card-icon">📄</div>
+              <div class="ach-card-content">
+                <h4>Recommendation Letters</h4>
+                <p>Upload from teacher<br>or mentor</p>
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-card-icon">🏆</div>
+              <div class="ach-card-content">
+                <h4>Other Competitions</h4>
+                <p>Add more</p>
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-card-icon">🎨</div>
+              <div class="ach-card-content">
+                <h4>Extracurricular Activities</h4>
+                <p>Add clubs, sports,<br>volunteering</p>
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-card-icon">💼</div>
+              <div class="ach-card-content">
+                <h4>Work Experience</h4>
+                <p>Add internships<br>or part-time jobs</p>
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-card-icon">📝</div>
+              <div class="ach-card-content">
+                <h4>Publications</h4>
+                <p>Add research papers<br>or articles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bottom Nav (Mobile) -->
+    <nav class="bottom-nav">
+      <div class="bottom-nav-items">
+        <button class="bottom-nav-item" onclick="location.href='dashboard.html'">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='universities.html'">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </button>
+        <button class="bottom-nav-item active">
+          <span class="nav-icon"><i class="fas fa-folder-open"></i></span>
+          <span data-i18n="nav_portfolio">Portfolio</span>
+        </button>
+        <button class="bottom-nav-item">
+          <span class="nav-icon"><i class="fas fa-bell"></i></span>
+          <span data-i18n="nav_notifications">Notifications</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='settings.html'">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+  // === AI Chances Logic ===
+  (function() {
+    const btn = document.getElementById('aiAnalyzeBtn');
+    const loading = document.getElementById('aiLoading');
+    const error = document.getElementById('aiError');
+    const errorText = document.getElementById('aiErrorText');
+    const results = document.getElementById('aiResults');
+    const kzList = document.getElementById('aiKzList');
+    const worldList = document.getElementById('aiWorldList');
+
+    function getScoresFromDOM() {
+      const cards = document.querySelectorAll('#testScoresList .test-score-card');
+      const scores = [];
+      cards.forEach(card => {
+        const testName = card.querySelector('.ts-name')?.textContent?.trim();
+        const scoreVal = card.querySelector('.ts-score')?.textContent?.trim();
+        const entComboEl = card.querySelector('.ts-ent-combo');
+        const entry = { test: testName, score: scoreVal };
+        if (entComboEl) {
+          entry.entCombo = entComboEl.dataset.combo;
+          entry.entSubjects = entComboEl.textContent.replace('Профиль: ', '').trim();
+        }
+        if (testName && scoreVal) scores.push(entry);
+      });
+      return scores;
+    }
+
+    function getChanceColor(chance) {
+      if (chance >= 80) return '#27ae60';
+      if (chance >= 60) return '#f39c12';
+      if (chance >= 40) return '#e67e22';
+      return '#e74c3c';
+    }
+
+    function renderUniList(container, universities) {
+      container.innerHTML = '';
+      universities.forEach(uni => {
+        const color = getChanceColor(uni.chance);
+        const card = document.createElement('div');
+        card.className = 'ai-uni-card';
+        card.innerHTML = `
+          <div class="ai-uni-info">
+            <h4 class="ai-uni-name">${uni.university}</h4>
+            <p class="ai-uni-comment">${uni.comment || ''}</p>
+          </div>
+          <div class="ai-uni-chance">
+            <div class="ai-chance-ring" style="--chance: ${uni.chance}; --color: ${color}">
+              <svg viewBox="0 0 36 36">
+                <path class="ai-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path class="ai-ring-fill" stroke="${color}" stroke-dasharray="${uni.chance}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              </svg>
+              <span class="ai-chance-pct">${uni.chance}%</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    btn.addEventListener('click', async () => {
+      const scores = getScoresFromDOM();
+      const lang = localStorage.getItem('unimap_lang') || 'ru';
+
+      if (scores.length === 0) {
+        error.classList.remove('hidden');
+        const noScoresMsg = (translations && translations.ai_chances_no_scores) 
+          ? (translations.ai_chances_no_scores[lang] || translations.ai_chances_no_scores['ru'])
+          : 'Add test scores first';
+        errorText.textContent = noScoresMsg;
+        return;
+      }
+
+      // Show loading
+      btn.classList.add('hidden');
+      error.classList.add('hidden');
+      results.classList.add('hidden');
+      loading.classList.remove('hidden');
+
+      try {
+        const token = localStorage.getItem('unimap_token');
+        const resp = await fetch('/api/ai-chances', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+          },
+          body: JSON.stringify({ scores, lang })
+        });
+
+        const data = await resp.json();
+        loading.classList.add('hidden');
+
+        if (!resp.ok || !data.success) {
+          error.classList.remove('hidden');
+          errorText.textContent = data.error || 'Unknown error';
+          btn.classList.remove('hidden');
+          return;
+        }
+
+        // Render results
+        renderUniList(kzList, data.data.kazakhstan || []);
+        renderUniList(worldList, data.data.worldwide || []);
+        results.classList.remove('hidden');
+        btn.classList.remove('hidden');
+        btn.querySelector('span').textContent = btn.querySelector('span').getAttribute('data-i18n') 
+          ? (translations?.ai_chances_btn?.[lang] || 'Re-analyze') 
+          : 'Re-analyze';
+
+      } catch (err) {
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+        const errMsg = (translations && translations.ai_chances_error) 
+          ? (translations.ai_chances_error[lang] || translations.ai_chances_error['ru'])
+          : 'Analysis error. Make sure Ollama is running.';
+        errorText.textContent = errMsg;
+        btn.classList.remove('hidden');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

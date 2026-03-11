@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMap — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">🎓</div>
+        <span class="brand-name">UniMap</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="active">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </a>
+        <a href="universities.html">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </a>
+        <a href="results.html">
+          <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+          <span data-i18n="nav_results">Results</span>
+        </a>
+        <a href="jobs.html">
+          <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+          <span data-i18n="nav_jobs">Part-Time Jobs</span>
+        </a>
+        <a href="housing.html">
+          <span class="nav-icon"><i class="fas fa-building"></i></span>
+          <span data-i18n="nav_housing">Housing</span>
+        </a>
+        <a href="services.html">
+          <span class="nav-icon"><i class="fas fa-concierge-bell"></i></span>
+          <span data-i18n="nav_services">Student Services</span>
+        </a>
+        <a href="settings.html">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="page-title">UniMap</span>
+        </div>
+        <div class="top-bar-right">
+          <span class="brand-link">zhask.co</span>
+          <div class="avatar"><i class="fas fa-user"></i></div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- Welcome -->
+        <div class="welcome-section fade-in">
+          <h1>Welcome, <span id="userName">Student</span></h1>
+          <p>Your journey to university success starts here</p>
+        </div>
+
+        <!-- Search -->
+        <div class="search-bar fade-in">
+          <span class="search-icon"><i class="fas fa-search"></i></span>
+          <input type="text" placeholder="Search universities by name or country">
+        </div>
+
+        <!-- Explore Universities -->
+        <div class="fade-in">
+          <div class="section-header">
+            <h3 class="section-title">Explore Universities</h3>
+            <div style="display:flex;gap:8px;">
+              <button class="filter-btn">
+                <i class="fas fa-filter"></i> Filter
+              </button>
+            </div>
+          </div>
+
+          <div class="uni-cards">
+            <div class="uni-card">
+              <div class="uni-card-img">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=200&fit=crop" alt="ENU" onerror="this.parentElement.innerHTML='🏛️'">
+              </div>
+              <div class="uni-card-body">
+                <h4>ENU - Eurasian National University</h4>
+                <span class="view-btn">View details</span>
+              </div>
+            </div>
+            <div class="uni-card">
+              <div class="uni-card-img">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=200&fit=crop" alt="Study Abroad" onerror="this.parentElement.innerHTML='🌍'">
+              </div>
+              <div class="uni-card-body">
+                <h4>Study Abroad Programs</h4>
+                <span class="view-btn">View details</span>
+              </div>
+            </div>
+            <div class="uni-card">
+              <div class="uni-card-img">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=200&fit=crop" alt="MIT" onerror="this.parentElement.innerHTML='🎓'">
+              </div>
+              <div class="uni-card-body">
+                <h4>Nazarbayev University</h4>
+                <span class="view-btn">View details</span>
+              </div>
+            </div>
+            <div class="uni-card">
+              <div class="uni-card-img">
+                <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=400&h=200&fit=crop" alt="KBTU" onerror="this.parentElement.innerHTML='📚'">
+              </div>
+              <div class="uni-card-body">
+                <h4>KBTU - Kazakh-British Technical University</h4>
+                <span class="view-btn">View details</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Your Portfolio -->
+        <div class="portfolio-section fade-in">
+          <h3 class="section-title mb-16">Your Portfolio</h3>
+
+          <div class="portfolio-tabs">
+            <button class="portfolio-tab active">Build Your Portfolio</button>
+            <button class="portfolio-tab">Grades</button>
+            <button class="portfolio-tab">Projects</button>
+          </div>
+
+          <div class="add-achievement" id="addAchievementBtn">
+            <i class="fas fa-plus-circle"></i>
+            <span>Add new achievement</span>
+          </div>
+
+          <!-- Inline: Choose type -->
+          <div class="inline-panel hidden" id="panelChooseType">
+            <div class="inline-panel-header">
+              <span class="inline-panel-title">Выберите тип</span>
+              <button class="inline-panel-close" id="closePanelType"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="inline-type-cards">
+              <div class="inline-type-card" data-type="gramota">
+                <div class="inline-type-icon"><i class="fas fa-award"></i></div>
+                <div class="inline-type-text">
+                  <h4>Грамоты / Сертификаты</h4>
+                  <p>Добавьте название и загрузите файл</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-type="ent">
+                <div class="inline-type-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="inline-type-text">
+                  <h4>Результаты ЕНТ</h4>
+                  <p>Выберите предметы и введите балл</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+              <div class="inline-type-card" data-type="ielts">
+                <div class="inline-type-icon"><i class="fas fa-language"></i></div>
+                <div class="inline-type-text">
+                  <h4>Результаты IELTS</h4>
+                  <p>Укажите Overall и секции</p>
+                </div>
+                <i class="fas fa-chevron-right inline-type-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inline: Gramota form -->
+          <div class="inline-panel hidden" id="panelGramota">
+            <div class="inline-panel-header">
+              <button class="inline-panel-back" id="backFromGramota"><i class="fas fa-arrow-left"></i></button>
+              <span class="inline-panel-title">Грамота / Сертификат</span>
+              <button class="inline-panel-close" id="closePanelGramota"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="inline-panel-body">
+              <label class="inline-label">Название грамоты / сертификата</label>
+              <input type="text" class="inline-input" id="gramotaName" placeholder="Например: Победитель олимпиады по физике 2025">
+              <label class="inline-label">Загрузить файл (необязательно)</label>
+              <label class="inline-file-label" id="gramotaFileLabel">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Выбрать файл</span>
+                <input type="file" id="gramotaFile" accept=".pdf,.jpg,.jpeg,.png" hidden>
+              </label>
+              <button class="inline-submit-btn" id="submitGramota"><i class="fas fa-plus"></i> Добавить</button>
+            </div>
+          </div>
+
+          <!-- Inline: ENT form -->
+          <div class="inline-panel hidden" id="panelEnt">
+            <div class="inline-panel-header">
+              <button class="inline-panel-back" id="backFromEnt"><i class="fas fa-arrow-left"></i></button>
+              <span class="inline-panel-title">Результаты ЕНТ</span>
+              <button class="inline-panel-close" id="closePanelEnt"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="inline-panel-body">
+              <label class="inline-label">Профильные предметы</label>
+              <div class="inline-select-row">
+                <select class="inline-select" id="entSubject1">
+                  <option value="" disabled selected>Предмет 1</option>
+                  <option>Математика</option>
+                  <option>Физика</option>
+                  <option>Химия</option>
+                  <option>Биология</option>
+                  <option>География</option>
+                  <option>Всемирная история</option>
+                  <option>Иностранный язык</option>
+                  <option>Информатика</option>
+                  <option>Литература</option>
+                  <option>Право</option>
+                </select>
+                <select class="inline-select" id="entSubject2">
+                  <option value="" disabled selected>Предмет 2</option>
+                  <option>Математика</option>
+                  <option>Физика</option>
+                  <option>Химия</option>
+                  <option>Биология</option>
+                  <option>География</option>
+                  <option>Всемирная история</option>
+                  <option>Иностранный язык</option>
+                  <option>Информатика</option>
+                  <option>Литература</option>
+                  <option>Право</option>
+                </select>
+              </div>
+              <label class="inline-label">Общий балл ЕНТ (0–140)</label>
+              <input type="number" class="inline-input" id="entScore" placeholder="Введите балл" min="0" max="140">
+              <button class="inline-submit-btn" id="submitEnt"><i class="fas fa-plus"></i> Добавить</button>
+            </div>
+          </div>
+
+          <!-- Inline: IELTS form -->
+          <div class="inline-panel hidden" id="panelIelts">
+            <div class="inline-panel-header">
+              <button class="inline-panel-back" id="backFromIelts"><i class="fas fa-arrow-left"></i></button>
+              <span class="inline-panel-title">Результаты IELTS</span>
+              <button class="inline-panel-close" id="closePanelIelts"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="inline-panel-body">
+              <label class="inline-label">Overall Band Score</label>
+              <select class="inline-select" id="ieltsOverall">
+                <option value="" disabled selected>Выберите балл</option>
+                <option>4.0</option><option>4.5</option><option>5.0</option><option>5.5</option>
+                <option>6.0</option><option>6.5</option><option>7.0</option><option>7.5</option>
+                <option>8.0</option><option>8.5</option><option>9.0</option>
+              </select>
+              <label class="inline-label">Баллы по секциям (необязательно)</label>
+              <div class="inline-ielts-grid">
+                <div class="inline-ielts-item">
+                  <span>Listening</span>
+                  <select class="inline-select inline-select-sm" id="ieltsListening">
+                    <option value="">—</option>
+                    <option>4.0</option><option>4.5</option><option>5.0</option><option>5.5</option>
+                    <option>6.0</option><option>6.5</option><option>7.0</option><option>7.5</option>
+                    <option>8.0</option><option>8.5</option><option>9.0</option>
+                  </select>
+                </div>
+                <div class="inline-ielts-item">
+                  <span>Reading</span>
+                  <select class="inline-select inline-select-sm" id="ieltsReading">
+                    <option value="">—</option>
+                    <option>4.0</option><option>4.5</option><option>5.0</option><option>5.5</option>
+                    <option>6.0</option><option>6.5</option><option>7.0</option><option>7.5</option>
+                    <option>8.0</option><option>8.5</option><option>9.0</option>
+                  </select>
+                </div>
+                <div class="inline-ielts-item">
+                  <span>Writing</span>
+                  <select class="inline-select inline-select-sm" id="ieltsWriting">
+                    <option value="">—</option>
+                    <option>4.0</option><option>4.5</option><option>5.0</option><option>5.5</option>
+                    <option>6.0</option><option>6.5</option><option>7.0</option><option>7.5</option>
+                    <option>8.0</option><option>8.5</option><option>9.0</option>
+                  </select>
+                </div>
+                <div class="inline-ielts-item">
+                  <span>Speaking</span>
+                  <select class="inline-select inline-select-sm" id="ieltsSpeaking">
+                    <option value="">—</option>
+                    <option>4.0</option><option>4.5</option><option>5.0</option><option>5.5</option>
+                    <option>6.0</option><option>6.5</option><option>7.0</option><option>7.5</option>
+                    <option>8.0</option><option>8.5</option><option>9.0</option>
+                  </select>
+                </div>
+              </div>
+              <button class="inline-submit-btn" id="submitIelts"><i class="fas fa-plus"></i> Добавить</button>
+            </div>
+          </div>
+
+          <div id="achievementsList" class="achievements-list">
+            <div class="empty-state" id="emptyState">
+              <i class="fas fa-folder-open" style="font-size:2rem;color:var(--text-muted);margin-bottom:10px;"></i>
+              <p style="color:var(--text-muted);font-size:0.9rem;">Пока пусто. Нажмите «Add new achievement» чтобы добавить.</p>
+            </div>
+          </div>
+
+          <button class="save-btn">Save</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bottom Nav (Mobile) -->
+    <nav class="bottom-nav">
+      <div class="bottom-nav-items">
+        <button class="bottom-nav-item active">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='universities.html'">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='results.html'">
+          <span class="nav-icon"><i class="fas fa-folder-open"></i></span>
+          <span data-i18n="nav_portfolio">Portfolio</span>
+        </button>
+        <button class="bottom-nav-item">
+          <span class="nav-icon"><i class="fas fa-bell"></i></span>
+          <span data-i18n="nav_notifications">Notifications</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='settings.html'">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    // Show user name
+    const u = JSON.parse(localStorage.getItem('unimap_user') || '{}');
+    const nameEl = document.getElementById('userName');
+    if (u.name && nameEl) nameEl.textContent = u.name;
+  </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMap — Settings</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">🎓</div>
+        <span class="brand-name">UniMap</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </a>
+        <a href="universities.html">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </a>
+        <a href="results.html">
+          <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+          <span data-i18n="nav_results">Results</span>
+        </a>
+        <a href="jobs.html">
+          <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+          <span data-i18n="nav_jobs">Part-Time Jobs</span>
+        </a>
+        <a href="housing.html">
+          <span class="nav-icon"><i class="fas fa-building"></i></span>
+          <span data-i18n="nav_housing">Housing</span>
+        </a>
+        <a href="services.html">
+          <span class="nav-icon"><i class="fas fa-concierge-bell"></i></span>
+          <span data-i18n="nav_services">Student Services</span>
+        </a>
+        <a href="settings.html" class="active">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="page-title" data-i18n="settings_title">Settings</span>
+        </div>
+        <div class="top-bar-right">
+          <span class="brand-link">zhask.co</span>
+          <div class="avatar"><i class="fas fa-user"></i></div>
+        </div>
+      </header>
+
+      <div class="content-area">
+
+        <!-- Settings Sections -->
+        <div class="settings-container fade-in">
+
+          <!-- Language Section -->
+          <div class="settings-section">
+            <div class="settings-section-header">
+              <div class="settings-section-icon"><i class="fas fa-globe"></i></div>
+              <div>
+                <h3 data-i18n="settings_language">Language</h3>
+                <p class="settings-section-desc" data-i18n="settings_language_desc">Choose your preferred interface language</p>
+              </div>
+            </div>
+
+            <div class="language-options" id="languageOptions">
+              <button class="lang-option" data-lang="ru">
+                <span class="lang-flag">🇷🇺</span>
+                <div class="lang-info">
+                  <span class="lang-name">Русский</span>
+                  <span class="lang-native">Russian</span>
+                </div>
+                <span class="lang-check"><i class="fas fa-check-circle"></i></span>
+              </button>
+
+              <button class="lang-option" data-lang="en">
+                <span class="lang-flag">🇬🇧</span>
+                <div class="lang-info">
+                  <span class="lang-name">English</span>
+                  <span class="lang-native">English</span>
+                </div>
+                <span class="lang-check"><i class="fas fa-check-circle"></i></span>
+              </button>
+
+              <button class="lang-option" data-lang="kk">
+                <span class="lang-flag">🇰🇿</span>
+                <div class="lang-info">
+                  <span class="lang-name">Қазақша</span>
+                  <span class="lang-native">Kazakh</span>
+                </div>
+                <span class="lang-check"><i class="fas fa-check-circle"></i></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Profile Section -->
+          <div class="settings-section">
+            <div class="settings-section-header">
+              <div class="settings-section-icon"><i class="fas fa-user-circle"></i></div>
+              <div>
+                <h3 data-i18n="settings_profile">Profile</h3>
+                <p class="settings-section-desc" data-i18n="settings_profile_desc">Manage your account information</p>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label" data-i18n="settings_email">Email</div>
+              <div class="settings-row-value">student@edu.kz</div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label" data-i18n="settings_name">Name</div>
+              <div class="settings-row-value">Student</div>
+            </div>
+          </div>
+
+          <!-- Notifications Section -->
+          <div class="settings-section">
+            <div class="settings-section-header">
+              <div class="settings-section-icon"><i class="fas fa-bell"></i></div>
+              <div>
+                <h3 data-i18n="settings_notifications">Notifications</h3>
+                <p class="settings-section-desc" data-i18n="settings_notifications_desc">Configure notification preferences</p>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label" data-i18n="settings_push">Push notifications</div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="pushToggle" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label" data-i18n="settings_email_notif">Email notifications</div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="emailToggle" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- About Section -->
+          <div class="settings-section">
+            <div class="settings-section-header">
+              <div class="settings-section-icon"><i class="fas fa-info-circle"></i></div>
+              <div>
+                <h3 data-i18n="settings_about">About</h3>
+                <p class="settings-section-desc" data-i18n="settings_about_desc">App information</p>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label" data-i18n="settings_version">Version</div>
+              <div class="settings-row-value">1.0.0</div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label" data-i18n="settings_developer">Developer</div>
+              <div class="settings-row-value">UniMap Team</div>
+            </div>
+          </div>
+
+          <!-- Logout -->
+          <button class="settings-logout" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span data-i18n="settings_logout">Log out</span>
+          </button>
+
+        </div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-items">
+        <button class="bottom-nav-item" onclick="location.href='dashboard.html'">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='universities.html'">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='results.html'">
+          <span class="nav-icon"><i class="fas fa-folder-open"></i></span>
+          <span data-i18n="nav_portfolio">Portfolio</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='#'">
+          <span class="nav-icon"><i class="fas fa-bell"></i></span>
+          <span data-i18n="nav_notifications">Notifications</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='settings.html'">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    // === Language Selection ===
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    function setActiveLang(lang) {
+      langOptions.forEach(opt => opt.classList.remove('active'));
+      const active = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+      if (active) active.classList.add('active');
+      localStorage.setItem('unimap_lang', lang);
+      if (window.applyTranslations) window.applyTranslations(lang);
+    }
+
+    langOptions.forEach(opt => {
+      opt.addEventListener('click', function () {
+        setActiveLang(this.dataset.lang);
+      });
+    });
+
+    // Init
+    const savedLang = localStorage.getItem('unimap_lang') || 'ru';
+    setActiveLang(savedLang);
+
+    // === Logout ===
+    document.getElementById('logoutBtn').addEventListener('click', async function() {
+      const token = localStorage.getItem('unimap_token');
+      try {
+        await fetch('/api/logout', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
+      } catch(e) {}
+      localStorage.removeItem('unimap_token');
+      localStorage.removeItem('unimap_user');
+      window.location.href = 'index.html';
+    });
+
+    // === Show user info ===
+    const userInfo = JSON.parse(localStorage.getItem('unimap_user') || '{}');
+    if (userInfo.email) {
+      const emailEl = document.querySelector('.settings-row-value');
+      if (emailEl) emailEl.textContent = userInfo.email;
+    }
+    if (userInfo.name) {
+      const rows = document.querySelectorAll('.settings-row-value');
+      if (rows[1]) rows[1].textContent = userInfo.name;
+    }
+  </script>
+</body>
+</html>

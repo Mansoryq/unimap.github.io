@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMap — Part-Time Jobs</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">🎓</div>
+        <span class="brand-name">UniMap</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </a>
+        <a href="universities.html">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </a>
+        <a href="results.html">
+          <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+          <span data-i18n="nav_results">Results</span>
+        </a>
+        <a href="jobs.html" class="active">
+          <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+          <span data-i18n="nav_jobs">Part-Time Jobs</span>
+        </a>
+        <a href="housing.html">
+          <span class="nav-icon"><i class="fas fa-building"></i></span>
+          <span data-i18n="nav_housing">Housing</span>
+        </a>
+        <a href="services.html">
+          <span class="nav-icon"><i class="fas fa-concierge-bell"></i></span>
+          <span data-i18n="nav_services">Student Services</span>
+        </a>
+        <a href="settings.html">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="page-title">Part-Time Jobs</span>
+        </div>
+        <div class="top-bar-right">
+          <span class="brand-link">zhask.co</span>
+          <div class="avatar"><i class="fas fa-user"></i></div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- Region Tabs -->
+        <div class="region-tabs fade-in">
+          <button class="region-tab active" data-region="kz">
+            <span class="region-flag">🇰🇿</span>
+            Kazakhstan
+          </button>
+          <button class="region-tab" data-region="world">
+            <span class="region-flag">🌍</span>
+            World Wide
+          </button>
+        </div>
+
+        <!-- Search -->
+        <div class="search-bar fade-in" style="margin-top:16px;">
+          <span class="search-icon"><i class="fas fa-search"></i></span>
+          <input type="text" id="jobSearch" placeholder="Search part-time jobs...">
+        </div>
+
+        <!-- Kazakhstan Jobs -->
+        <div class="region-content active" id="region-kz">
+          <div class="job-cards fade-in" style="margin-top:20px;">
+
+            <div class="job-card" data-name="Репетитор Tutor">
+              <div class="job-card-icon" style="color:#6c5ce7"><i class="fas fa-chalkboard-teacher"></i></div>
+              <div class="job-card-body">
+                <h4>Репетитор / Tutor</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> Гибкий график</span>
+                  <span class="job-pay">от 3,000 ₸/час</span>
+                </div>
+                <p class="job-desc">Преподавание школьных предметов, подготовка к ЕНТ, английский язык</p>
+                <div class="job-tags"><span class="jtag">Образование</span><span class="jtag">Онлайн</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Курьер Delivery">
+              <div class="job-card-icon" style="color:#00b894"><i class="fas fa-motorcycle"></i></div>
+              <div class="job-card-body">
+                <h4>Курьер / Доставщик</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> Свободный график</span>
+                  <span class="job-pay">от 2,500 ₸/час</span>
+                </div>
+                <p class="job-desc">Glovo, Wolt, Yandex Delivery — доставка еды и товаров</p>
+                <div class="job-tags"><span class="jtag">Доставка</span><span class="jtag">Гибкий график</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Бариста Кафе Barista">
+              <div class="job-card-icon" style="color:#fdcb6e"><i class="fas fa-mug-hot"></i></div>
+              <div class="job-card-body">
+                <h4>Бариста / Официант</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> Сменный график</span>
+                  <span class="job-pay">от 1,500 ₸/час</span>
+                </div>
+                <p class="job-desc">Работа в кафе, ресторанах, кофейнях — Астана, Алматы</p>
+                <div class="job-tags"><span class="jtag">Общепит</span><span class="jtag">Смены</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="SMM-менеджер Маркетолог Social Media">
+              <div class="job-card-icon" style="color:#e17055"><i class="fas fa-hashtag"></i></div>
+              <div class="job-card-body">
+                <h4>SMM-менеджер</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> Удалённо</span>
+                  <span class="job-pay">от 80,000 ₸/мес</span>
+                </div>
+                <p class="job-desc">Ведение Instagram, TikTok для бизнесов. Контент, сторис, reels</p>
+                <div class="job-tags"><span class="jtag">Маркетинг</span><span class="jtag">Удалённо</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Продавец-консультант Sales">
+              <div class="job-card-icon" style="color:#74b9ff"><i class="fas fa-store"></i></div>
+              <div class="job-card-body">
+                <h4>Продавец-консультант</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> 4-6 часов/день</span>
+                  <span class="job-pay">от 1,200 ₸/час</span>
+                </div>
+                <p class="job-desc">Магазины одежды, электроники, торговые центры</p>
+                <div class="job-tags"><span class="jtag">Розница</span><span class="jtag">ТРЦ</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Фрилансер Дизайнер Freelance Designer">
+              <div class="job-card-icon" style="color:#a29bfe"><i class="fas fa-palette"></i></div>
+              <div class="job-card-body">
+                <h4>Фрилансер — Дизайн / Видеомонтаж</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> Удалённо</span>
+                  <span class="job-pay">от 5,000 ₸/проект</span>
+                </div>
+                <p class="job-desc">Canva, Figma, Premiere Pro — логотипы, баннеры, видео</p>
+                <div class="job-tags"><span class="jtag">Креатив</span><span class="jtag">Фриланс</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Промоутер Мерчандайзер Promoter">
+              <div class="job-card-icon" style="color:#55efc4"><i class="fas fa-bullhorn"></i></div>
+              <div class="job-card-body">
+                <h4>Промоутер / Мерчандайзер</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> 3-5 часов/день</span>
+                  <span class="job-pay">от 5,000 ₸/день</span>
+                </div>
+                <p class="job-desc">Раздача листовок, дегустации, выкладка товаров</p>
+                <div class="job-tags"><span class="jtag">Промо</span><span class="jtag">Подработка</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Call-центр оператор Operator">
+              <div class="job-card-icon" style="color:#ffeaa7"><i class="fas fa-headset"></i></div>
+              <div class="job-card-body">
+                <h4>Оператор call-центра</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> Сменный график</span>
+                  <span class="job-pay">от 1,500 ₸/час</span>
+                </div>
+                <p class="job-desc">Kaspi, Halyk, call-центры — входящие/исходящие звонки</p>
+                <div class="job-tags"><span class="jtag">Офис</span><span class="jtag">Смены</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Программист Developer IT">
+              <div class="job-card-icon" style="color:#81ecec"><i class="fas fa-code"></i></div>
+              <div class="job-card-body">
+                <h4>Junior Developer / IT-стажёр</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> 20 часов/неделя</span>
+                  <span class="job-pay">от 150,000 ₸/мес</span>
+                </div>
+                <p class="job-desc">Web-разработка, мобильная разработка, тестирование</p>
+                <div class="job-tags"><span class="jtag">IT</span><span class="jtag">Стажировка</span></div>
+              </div>
+            </div>
+
+            <div class="job-card" data-name="Фотограф Видеограф Photographer">
+              <div class="job-card-icon" style="color:#fab1a0"><i class="fas fa-camera"></i></div>
+              <div class="job-card-body">
+                <h4>Фотограф / Видеограф</h4>
+                <div class="job-meta">
+                  <span class="job-type"><i class="fas fa-clock"></i> По заказам</span>
+                  <span class="job-pay">от 10,000 ₸/съёмка</span>
+                </div>
+                <p class="job-desc">Свадьбы, мероприятия, контент для соцсетей</p>
+                <div class="job-tags"><span class="jtag">Креатив</span><span class="jtag">Фриланс</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- World Wide Countries -->
+        <div class="region-content" id="region-world">
+
+          <!-- Country Grid -->
+          <div class="country-grid fade-in" id="countryGrid" style="margin-top:20px;">
+            <div class="country-card" data-country="United States"><div class="country-flag">🇺🇸</div><div class="country-name">United States</div></div>
+            <div class="country-card" data-country="United Kingdom"><div class="country-flag">🇬🇧</div><div class="country-name">United Kingdom</div></div>
+            <div class="country-card" data-country="Canada"><div class="country-flag">🇨🇦</div><div class="country-name">Canada</div></div>
+            <div class="country-card" data-country="Germany"><div class="country-flag">🇩🇪</div><div class="country-name">Germany</div></div>
+            <div class="country-card" data-country="France"><div class="country-flag">🇫🇷</div><div class="country-name">France</div></div>
+            <div class="country-card" data-country="Australia"><div class="country-flag">🇦🇺</div><div class="country-name">Australia</div></div>
+            <div class="country-card" data-country="Japan"><div class="country-flag">🇯🇵</div><div class="country-name">Japan</div></div>
+            <div class="country-card" data-country="South Korea"><div class="country-flag">🇰🇷</div><div class="country-name">South Korea</div></div>
+            <div class="country-card" data-country="China"><div class="country-flag">🇨🇳</div><div class="country-name">China</div></div>
+            <div class="country-card" data-country="Turkey"><div class="country-flag">🇹🇷</div><div class="country-name">Turkey</div></div>
+            <div class="country-card" data-country="Russia"><div class="country-flag">🇷🇺</div><div class="country-name">Russia</div></div>
+            <div class="country-card" data-country="Netherlands"><div class="country-flag">🇳🇱</div><div class="country-name">Netherlands</div></div>
+            <div class="country-card" data-country="Switzerland"><div class="country-flag">🇨🇭</div><div class="country-name">Switzerland</div></div>
+            <div class="country-card" data-country="Singapore"><div class="country-flag">🇸🇬</div><div class="country-name">Singapore</div></div>
+            <div class="country-card" data-country="Sweden"><div class="country-flag">🇸🇪</div><div class="country-name">Sweden</div></div>
+            <div class="country-card" data-country="Italy"><div class="country-flag">🇮🇹</div><div class="country-name">Italy</div></div>
+            <div class="country-card" data-country="Spain"><div class="country-flag">🇪🇸</div><div class="country-name">Spain</div></div>
+            <div class="country-card" data-country="UAE"><div class="country-flag">🇦🇪</div><div class="country-name">UAE</div></div>
+            <div class="country-card" data-country="Malaysia"><div class="country-flag">🇲🇾</div><div class="country-name">Malaysia</div></div>
+            <div class="country-card" data-country="Czech Republic"><div class="country-flag">🇨🇿</div><div class="country-name">Czech Republic</div></div>
+            <div class="country-card" data-country="Poland"><div class="country-flag">🇵🇱</div><div class="country-name">Poland</div></div>
+            <div class="country-card" data-country="Hungary"><div class="country-flag">🇭🇺</div><div class="country-name">Hungary</div></div>
+            <div class="country-card" data-country="India"><div class="country-flag">🇮🇳</div><div class="country-name">India</div></div>
+            <div class="country-card" data-country="New Zealand"><div class="country-flag">🇳🇿</div><div class="country-name">New Zealand</div></div>
+          </div>
+
+          <!-- Country Jobs drill-down -->
+          <div id="countryJobsView" style="display:none; margin-top:20px;">
+            <button class="back-to-countries" id="backToCountries">
+              <i class="fas fa-arrow-left"></i>
+              <span>Back to countries</span>
+            </button>
+            <h3 class="country-uni-title" id="countryJobsTitle"></h3>
+            <div class="job-cards fade-in" id="countryJobsCards"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-items">
+        <button class="bottom-nav-item" onclick="location.href='dashboard.html'">
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span data-i18n="nav_home">Home</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='universities.html'">
+          <span class="nav-icon"><i class="fas fa-university"></i></span>
+          <span data-i18n="nav_universities">Universities</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='results.html'">
+          <span class="nav-icon"><i class="fas fa-folder-open"></i></span>
+          <span data-i18n="nav_portfolio">Portfolio</span>
+        </button>
+        <button class="bottom-nav-item">
+          <span class="nav-icon"><i class="fas fa-bell"></i></span>
+          <span data-i18n="nav_notifications">Notifications</span>
+        </button>
+        <button class="bottom-nav-item" onclick="location.href='settings.html'">
+          <span class="nav-icon"><i class="fas fa-cog"></i></span>
+          <span data-i18n="nav_settings">Settings</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    // === Jobs data by country ===
+    const worldJobs = {
+      "United States": [
+        { name: "Campus Library Assistant", type: "На кампусе", pay: "$12–15/hr", icon: "fa-book", color: "#6c5ce7", desc: "Shelving books, helping students, desk duties" },
+        { name: "Research Assistant", type: "На кампусе", pay: "$15–20/hr", icon: "fa-flask", color: "#00b894", desc: "Assist professors with research projects and data" },
+        { name: "Barista / Café Worker", type: "Общепит", pay: "$10–14/hr + tips", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Starbucks, campus cafés, local coffee shops" },
+        { name: "Retail Sales Associate", type: "Розница", pay: "$11–15/hr", icon: "fa-store", color: "#74b9ff", desc: "Part-time at malls, Target, Walmart" },
+        { name: "Uber / DoorDash Driver", type: "Доставка", pay: "$15–25/hr", icon: "fa-car", color: "#e17055", desc: "Flexible gig economy — deliver food or drive" },
+        { name: "Tutoring (Math, English)", type: "Образование", pay: "$20–40/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Tutor other students in-person or on Wyzant, Chegg" },
+        { name: "Freelance Web/App Developer", type: "IT / Фриланс", pay: "$25–50/hr", icon: "fa-code", color: "#81ecec", desc: "Build websites and apps on Upwork, Fiverr" },
+        { name: "Social Media Intern", type: "Маркетинг", pay: "$12–18/hr", icon: "fa-hashtag", color: "#fab1a0", desc: "Manage brand accounts, content creation" }
+      ],
+      "United Kingdom": [
+        { name: "University Student Ambassador", type: "На кампусе", pay: "£10–12/hr", icon: "fa-user-graduate", color: "#6c5ce7", desc: "Campus tours, open days, event support" },
+        { name: "Barista / Pub Staff", type: "Общепит", pay: "£9–11/hr", icon: "fa-beer-mug-empty", color: "#fdcb6e", desc: "Pubs, Costa, Pret — classic UK student jobs" },
+        { name: "Retail Assistant", type: "Розница", pay: "£9–11/hr", icon: "fa-store", color: "#74b9ff", desc: "Primark, Tesco, Sainsbury's part-time" },
+        { name: "Deliveroo / Uber Eats Rider", type: "Доставка", pay: "£10–15/hr", icon: "fa-bicycle", color: "#00b894", desc: "Flexible bike or scooter delivery" },
+        { name: "Tutor", type: "Образование", pay: "£15–30/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "A-Level, GCSE tutoring on MyTutor, Superprof" },
+        { name: "Freelance Design / Writing", type: "IT / Фриланс", pay: "£12–25/hr", icon: "fa-palette", color: "#e17055", desc: "Graphic design, copywriting, translation" }
+      ],
+      "Canada": [
+        { name: "Campus Work-Study", type: "На кампусе", pay: "CAD 15–17/hr", icon: "fa-school", color: "#6c5ce7", desc: "Admin, lab assistant, library helper" },
+        { name: "Barista / Fast Food", type: "Общепит", pay: "CAD 15–17/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Tim Hortons, Starbucks, McDonald's" },
+        { name: "Grocery Store Clerk", type: "Розница", pay: "CAD 15–16/hr", icon: "fa-basket-shopping", color: "#00b894", desc: "Loblaws, Metro, Walmart — cashier, stocking" },
+        { name: "Skip / Uber Eats Delivery", type: "Доставка", pay: "CAD 15–22/hr", icon: "fa-car", color: "#e17055", desc: "Flexible delivery gigs in cities" },
+        { name: "Tutor / Language Teacher", type: "Образование", pay: "CAD 20–35/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Math, science, French/English tutoring" },
+        { name: "Freelance Developer", type: "IT / Фриланс", pay: "CAD 25–50/hr", icon: "fa-code", color: "#81ecec", desc: "Web & mobile projects on freelance platforms" }
+      ],
+      "Germany": [
+        { name: "Werkstudent (Working Student)", type: "Офис", pay: "€12–16/hr", icon: "fa-laptop", color: "#6c5ce7", desc: "Official part-time role at German companies (20hr/wk)" },
+        { name: "HiWi (University Research Aid)", type: "На кампусе", pay: "€12–14/hr", icon: "fa-flask", color: "#00b894", desc: "Research and teaching assistant at university" },
+        { name: "Café / Restaurant Worker", type: "Общепит", pay: "€12–13/hr", icon: "fa-utensils", color: "#fdcb6e", desc: "Gastro mini-job, especially in cities" },
+        { name: "Delivery (Lieferando, Wolt)", type: "Доставка", pay: "€11–14/hr", icon: "fa-bicycle", color: "#e17055", desc: "Food delivery on bike" },
+        { name: "Tutor / Nachhilfe", type: "Образование", pay: "€15–25/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Help German students or teach languages" },
+        { name: "Minijob (€520/month)", type: "Подработка", pay: "€520/mo max", icon: "fa-coins", color: "#ffeaa7", desc: "Tax-free mini-job — retail, cleaning, office" }
+      ],
+      "France": [
+        { name: "Emploi étudiant (Campus Job)", type: "На кампусе", pay: "€11–12/hr", icon: "fa-school", color: "#6c5ce7", desc: "Library, admin office, student union" },
+        { name: "Serveur / Barista", type: "Общепит", pay: "€11–13/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Cafés, brasseries, restaurants" },
+        { name: "Baby-sitting", type: "Услуги", pay: "€10–15/hr", icon: "fa-baby", color: "#fab1a0", desc: "Very popular student job in France" },
+        { name: "Cours particuliers (Tutoring)", type: "Образование", pay: "€15–25/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Private lessons in math, English, sciences" },
+        { name: "Uber Eats / Deliveroo", type: "Доставка", pay: "€10–15/hr", icon: "fa-bicycle", color: "#00b894", desc: "Flexible delivery in Paris and major cities" },
+        { name: "Freelance (Auto-entrepreneur)", type: "IT / Фриланс", pay: "€15–30/hr", icon: "fa-laptop-code", color: "#81ecec", desc: "Web dev, design, translation under auto-entrepreneur status" }
+      ],
+      "Australia": [
+        { name: "Hospitality (Café/Bar)", type: "Общепит", pay: "AUD 23–28/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "High casual rates, weekends even higher" },
+        { name: "Retail Sales", type: "Розница", pay: "AUD 22–26/hr", icon: "fa-store", color: "#74b9ff", desc: "Coles, Woolworths, JB Hi-Fi" },
+        { name: "Uber Eats / DoorDash", type: "Доставка", pay: "AUD 15–25/hr", icon: "fa-car", color: "#e17055", desc: "Delivery gigs — flexible hours" },
+        { name: "Tutor", type: "Образование", pay: "AUD 30–50/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Tutoring uni or high school students" },
+        { name: "Campus Assistant", type: "На кампусе", pay: "AUD 22–28/hr", icon: "fa-school", color: "#6c5ce7", desc: "Library, labs, admin — on-campus roles" },
+        { name: "Freelance / Gig Work", type: "IT / Фриланс", pay: "AUD 25–60/hr", icon: "fa-code", color: "#81ecec", desc: "Tech, design, writing on Airtasker/Freelancer" }
+      ],
+      "Japan": [
+        { name: "Konbini (Convenience Store)", type: "Розница", pay: "¥1,000–1,200/hr", icon: "fa-store", color: "#74b9ff", desc: "7-Eleven, Lawson, FamilyMart — classic arubaito" },
+        { name: "Izakaya / Restaurant Staff", type: "Общепит", pay: "¥1,000–1,300/hr", icon: "fa-utensils", color: "#fdcb6e", desc: "Serving, kitchen help — evening shifts" },
+        { name: "English Conversation Teacher", type: "Образование", pay: "¥1,500–3,000/hr", icon: "fa-comments", color: "#a29bfe", desc: "Eikaiwa or private English lessons" },
+        { name: "Factory / Warehouse (工場)", type: "Подработка", pay: "¥1,100–1,400/hr", icon: "fa-box", color: "#e17055", desc: "Sorting, packing — night shifts pay more" },
+        { name: "Delivery (Uber Eats Japan)", type: "Доставка", pay: "¥1,000–2,000/hr", icon: "fa-bicycle", color: "#00b894", desc: "Bike delivery in Tokyo, Osaka" },
+        { name: "Translation / Interpreter", type: "IT / Фриланс", pay: "¥2,000–4,000/hr", icon: "fa-language", color: "#6c5ce7", desc: "Japanese-English translation freelance" }
+      ],
+      "South Korea": [
+        { name: "Café / Restaurant (카페 알바)", type: "Общепит", pay: "₩9,860+/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Cafés, chicken shops, Korean BBQ" },
+        { name: "Convenience Store (편의점)", type: "Розница", pay: "₩9,860+/hr", icon: "fa-store", color: "#74b9ff", desc: "CU, GS25, 7-Eleven — popular student job" },
+        { name: "English Tutor / 과외", type: "Образование", pay: "₩20,000–40,000/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Private English/math tutoring — very well paid" },
+        { name: "Delivery (배달)", type: "Доставка", pay: "₩10,000–18,000/hr", icon: "fa-motorcycle", color: "#00b894", desc: "Baemin, Coupang Eats delivery" },
+        { name: "Event Staff / 행사 알바", type: "Подработка", pay: "₩10,000–15,000/hr", icon: "fa-calendar-check", color: "#e17055", desc: "Conventions, promotions, concerts" },
+        { name: "Content Creator / Freelance", type: "IT / Фриланс", pay: "₩15,000–30,000/hr", icon: "fa-laptop-code", color: "#81ecec", desc: "Design, video editing, web development" }
+      ],
+      "China": [
+        { name: "English Teacher (外教)", type: "Образование", pay: "¥100–200/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Private English lessons or at language schools" },
+        { name: "Campus Assistant", type: "На кампусе", pay: "¥15–25/hr", icon: "fa-school", color: "#6c5ce7", desc: "Library, lab assistant roles" },
+        { name: "Café / Milk Tea Shop", type: "Общепит", pay: "¥18–25/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Bubble tea shops, cafés near campus" },
+        { name: "Translation / Interpretation", type: "IT / Фриланс", pay: "¥80–150/hr", icon: "fa-language", color: "#81ecec", desc: "Chinese-English translation work" },
+        { name: "E-commerce Assistant", type: "Онлайн", pay: "¥20–40/hr", icon: "fa-shopping-cart", color: "#00b894", desc: "Helping with Taobao/WeChat stores" },
+        { name: "Content Writing / Editing", type: "IT / Фриланс", pay: "¥50–100/hr", icon: "fa-pen-fancy", color: "#e17055", desc: "English editing, blog writing" }
+      ],
+      "Turkey": [
+        { name: "Garson / Barista", type: "Общепит", pay: "₺80–120/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Cafés and restaurants in student areas" },
+        { name: "Özel Ders (Private Tutoring)", type: "Образование", pay: "₺150–300/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Math, English, science — good pay" },
+        { name: "Call Center", type: "Офис", pay: "₺100–150/hr", icon: "fa-headset", color: "#74b9ff", desc: "Customer service in English or Turkish" },
+        { name: "Delivery (Getir, Yemeksepeti)", type: "Доставка", pay: "₺80–130/hr", icon: "fa-motorcycle", color: "#00b894", desc: "Food and grocery delivery" },
+        { name: "Social Media Manager", type: "Маркетинг", pay: "₺5,000–10,000/mo", icon: "fa-hashtag", color: "#e17055", desc: "Manage Instagram, TikTok for brands" },
+        { name: "Freelance Translation", type: "IT / Фриланс", pay: "₺100–200/hr", icon: "fa-language", color: "#81ecec", desc: "Turkish-English translation" }
+      ],
+      "Russia": [
+        { name: "Репетитор", type: "Образование", pay: "от ₽500/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Математика, английский, ЕГЭ подготовка" },
+        { name: "Курьер (Яндекс, Delivery Club)", type: "Доставка", pay: "от ₽300/hr", icon: "fa-motorcycle", color: "#00b894", desc: "Доставка еды — гибкий график" },
+        { name: "Бариста / Официант", type: "Общепит", pay: "от ₽250/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Кофейни, рестораны — сменный график" },
+        { name: "Продавец-консультант", type: "Розница", pay: "от ₽200/hr", icon: "fa-store", color: "#74b9ff", desc: "Магазины техники, одежды, ТЦ" },
+        { name: "SMM-менеджер / Копирайтер", type: "Маркетинг", pay: "от ₽20,000/мес", icon: "fa-hashtag", color: "#e17055", desc: "Ведение соцсетей, написание текстов" },
+        { name: "Фриланс-разработчик", type: "IT / Фриланс", pay: "от ₽500/hr", icon: "fa-code", color: "#81ecec", desc: "Web, мобильная разработка, дизайн" }
+      ],
+      "Netherlands": [
+        { name: "Horeca (Hospitality)", type: "Общепит", pay: "€11–14/hr", icon: "fa-utensils", color: "#fdcb6e", desc: "Bars, restaurants, cafés — very common" },
+        { name: "Supermarket (Albert Heijn)", type: "Розница", pay: "€10–13/hr", icon: "fa-basket-shopping", color: "#00b894", desc: "Cashier, stocking at AH, Jumbo" },
+        { name: "Bicycle Delivery (Thuisbezorgd)", type: "Доставка", pay: "€11–15/hr", icon: "fa-bicycle", color: "#e17055", desc: "Bike delivery — perfect for NL" },
+        { name: "University Student Assistant", type: "На кампусе", pay: "€12–15/hr", icon: "fa-school", color: "#6c5ce7", desc: "Teaching, research, admin support" },
+        { name: "Tutoring / Language Lessons", type: "Образование", pay: "€15–25/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "English, math, Dutch language" },
+        { name: "Freelance IT / Design", type: "IT / Фриланс", pay: "€20–40/hr", icon: "fa-laptop-code", color: "#81ecec", desc: "Web development, graphic design" }
+      ],
+      "Switzerland": [
+        { name: "University HiWi", type: "На кампусе", pay: "CHF 25–30/hr", icon: "fa-flask", color: "#6c5ce7", desc: "Research and teaching assistant" },
+        { name: "Retail / Gastro", type: "Общепит", pay: "CHF 20–25/hr", icon: "fa-store", color: "#fdcb6e", desc: "Cafés, shops — high Swiss wages" },
+        { name: "Tutoring", type: "Образование", pay: "CHF 30–50/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "German/French/Math tutoring" },
+        { name: "Freelance / IT", type: "IT / Фриланс", pay: "CHF 35–60/hr", icon: "fa-code", color: "#81ecec", desc: "Dev, design, consulting projects" }
+      ],
+      "Singapore": [
+        { name: "F&B Service Crew", type: "Общепит", pay: "SGD 8–12/hr", icon: "fa-utensils", color: "#fdcb6e", desc: "Hawker centres, cafés, restaurants" },
+        { name: "Retail Assistant", type: "Розница", pay: "SGD 8–10/hr", icon: "fa-store", color: "#74b9ff", desc: "Orchard Road malls, Uniqlo, etc." },
+        { name: "Tutor", type: "Образование", pay: "SGD 20–40/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Extremely popular — very well paid" },
+        { name: "Grab / Food Delivery", type: "Доставка", pay: "SGD 10–15/hr", icon: "fa-motorcycle", color: "#00b894", desc: "GrabFood, Foodpanda delivery" },
+        { name: "Freelance Tech / Design", type: "IT / Фриланс", pay: "SGD 20–50/hr", icon: "fa-laptop-code", color: "#81ecec", desc: "Web, app dev, UI/UX freelancing" }
+      ],
+      "Sweden": [
+        { name: "Campus Job (Studentmedarbetare)", type: "На кампусе", pay: "SEK 130–160/hr", icon: "fa-school", color: "#6c5ce7", desc: "Library, IT support, events" },
+        { name: "Restaurant / Café Staff", type: "Общепит", pay: "SEK 120–150/hr", icon: "fa-utensils", color: "#fdcb6e", desc: "Espresso House, Max, local restaurants" },
+        { name: "Foodora / Wolt Delivery", type: "Доставка", pay: "SEK 120–180/hr", icon: "fa-bicycle", color: "#00b894", desc: "Bike delivery in Stockholm, Göteborg" },
+        { name: "Tutoring", type: "Образование", pay: "SEK 150–250/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Math, science, English lessons" },
+        { name: "Freelance / IT", type: "IT / Фриланс", pay: "SEK 200–400/hr", icon: "fa-code", color: "#81ecec", desc: "Web dev, design, translation" }
+      ],
+      "Italy": [
+        { name: "Cameriere / Barista", type: "Общепит", pay: "€7–10/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Bars, restaurants — tips help" },
+        { name: "Ripetizioni (Tutoring)", type: "Образование", pay: "€10–20/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Private lessons in English, math" },
+        { name: "Retail / Tourism", type: "Розница", pay: "€8–11/hr", icon: "fa-store", color: "#74b9ff", desc: "Tourist shops, hotels, guides" },
+        { name: "Delivery (Glovo, JustEat)", type: "Доставка", pay: "€8–12/hr", icon: "fa-bicycle", color: "#00b894", desc: "Food delivery on bikes/scooters" },
+        { name: "Freelance / Translation", type: "IT / Фриланс", pay: "€10–25/hr", icon: "fa-language", color: "#81ecec", desc: "Italian-English translation, design" }
+      ],
+      "Spain": [
+        { name: "Camarero / Barista", type: "Общепит", pay: "€7–10/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Tapas bars, cafeterías, restaurants" },
+        { name: "Clases Particulares (Tutoring)", type: "Образование", pay: "€10–20/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "English or math private lessons" },
+        { name: "Tourist Guide / Hostel Staff", type: "Услуги", pay: "€8–12/hr", icon: "fa-map-signs", color: "#74b9ff", desc: "Hostels, free walking tours" },
+        { name: "Delivery (Glovo, UberEats)", type: "Доставка", pay: "€7–12/hr", icon: "fa-bicycle", color: "#00b894", desc: "Riders in Madrid, Barcelona" },
+        { name: "Au Pair / Babysitting", type: "Услуги", pay: "€8–12/hr", icon: "fa-baby", color: "#fab1a0", desc: "Childcare — room & board often included" }
+      ],
+      "UAE": [
+        { name: "Retail Sales (Malls)", type: "Розница", pay: "AED 20–30/hr", icon: "fa-store", color: "#74b9ff", desc: "Dubai Mall, Mall of Emirates" },
+        { name: "Event Staff / Promoter", type: "Подработка", pay: "AED 25–40/hr", icon: "fa-calendar-check", color: "#e17055", desc: "Exhibitions, conferences, launches" },
+        { name: "Social Media / Marketing Intern", type: "Маркетинг", pay: "AED 15–25/hr", icon: "fa-hashtag", color: "#fdcb6e", desc: "Brand content, social media management" },
+        { name: "Tutoring", type: "Образование", pay: "AED 50–100/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "English, math, science — international schools" },
+        { name: "Freelance Tech", type: "IT / Фриланс", pay: "AED 40–80/hr", icon: "fa-code", color: "#81ecec", desc: "Web/app development freelancing" }
+      ],
+      "Malaysia": [
+        { name: "Café / F&B Crew", type: "Общепит", pay: "MYR 7–10/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Mamak stalls, cafés, fast food" },
+        { name: "Retail Part-Time", type: "Розница", pay: "MYR 6–9/hr", icon: "fa-store", color: "#74b9ff", desc: "Shopping malls, Uniqlo, MR DIY" },
+        { name: "Tutor / Tuition Teacher", type: "Образование", pay: "MYR 30–60/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Very popular — O-Level, SPM prep" },
+        { name: "Grab Delivery", type: "Доставка", pay: "MYR 8–15/hr", icon: "fa-motorcycle", color: "#00b894", desc: "GrabFood, Foodpanda delivery" },
+        { name: "Freelance / Online", type: "IT / Фриланс", pay: "MYR 20–50/hr", icon: "fa-laptop-code", color: "#81ecec", desc: "Design, writing, web dev" }
+      ],
+      "Czech Republic": [
+        { name: "Café / Restaurant (Brigáda)", type: "Общепит", pay: "CZK 130–170/hr", icon: "fa-utensils", color: "#fdcb6e", desc: "Prague cafés, bars, restaurants" },
+        { name: "Retail / Supermarket", type: "Розница", pay: "CZK 120–150/hr", icon: "fa-store", color: "#74b9ff", desc: "Albert, Billa, shopping centres" },
+        { name: "Tutoring / Language Lessons", type: "Образование", pay: "CZK 200–400/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "English, Russian, math tutoring" },
+        { name: "Wolt / Bolt Delivery", type: "Доставка", pay: "CZK 150–250/hr", icon: "fa-bicycle", color: "#00b894", desc: "Food delivery in Prague, Brno" },
+        { name: "IT / Freelance", type: "IT / Фриланс", pay: "CZK 250–500/hr", icon: "fa-code", color: "#81ecec", desc: "Web development, testing, design" }
+      ],
+      "Poland": [
+        { name: "Kelner / Barista", type: "Общепит", pay: "PLN 25–32/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Cafés, restaurants in Kraków, Warsaw" },
+        { name: "Retail (Sklep)", type: "Розница", pay: "PLN 23–28/hr", icon: "fa-store", color: "#74b9ff", desc: "Żabka, Biedronka, malls" },
+        { name: "Korepetycje (Tutoring)", type: "Образование", pay: "PLN 40–80/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "English, math, matura prep" },
+        { name: "Glovo / Uber Eats Delivery", type: "Доставка", pay: "PLN 20–35/hr", icon: "fa-bicycle", color: "#00b894", desc: "Bike delivery in major cities" },
+        { name: "Freelance / IT", type: "IT / Фриланс", pay: "PLN 40–80/hr", icon: "fa-laptop-code", color: "#81ecec", desc: "Programming, design, writing" }
+      ],
+      "Hungary": [
+        { name: "Pincér / Barista", type: "Общепит", pay: "HUF 1,800–2,500/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Ruin bars, cafés in Budapest" },
+        { name: "Retail / Supermarket", type: "Розница", pay: "HUF 1,600–2,000/hr", icon: "fa-store", color: "#74b9ff", desc: "Tesco, Spar, Westend mall" },
+        { name: "Language Tutoring", type: "Образование", pay: "HUF 3,000–6,000/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "English, German lessons" },
+        { name: "Wolt / Foodpanda Delivery", type: "Доставка", pay: "HUF 2,000–3,500/hr", icon: "fa-bicycle", color: "#00b894", desc: "Food delivery in Budapest" },
+        { name: "Freelance / Translation", type: "IT / Фриланс", pay: "HUF 3,000–6,000/hr", icon: "fa-language", color: "#81ecec", desc: "Hungarian-English translation, IT" }
+      ],
+      "India": [
+        { name: "Tuition Teacher / Tutor", type: "Образование", pay: "₹200–500/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Coaching for school students — huge demand" },
+        { name: "Café / Restaurant Staff", type: "Общепит", pay: "₹80–150/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "CCD, Starbucks, local restaurants" },
+        { name: "Delivery (Zomato, Swiggy)", type: "Доставка", pay: "₹100–200/hr", icon: "fa-motorcycle", color: "#00b894", desc: "Food delivery — flexible hours" },
+        { name: "Data Entry / Virtual Assistant", type: "Онлайн", pay: "₹150–300/hr", icon: "fa-keyboard", color: "#74b9ff", desc: "Remote data entry, admin tasks" },
+        { name: "Content Writer / Blogger", type: "IT / Фриланс", pay: "₹200–500/hr", icon: "fa-pen-fancy", color: "#e17055", desc: "SEO writing, blog posts, copywriting" },
+        { name: "Freelance Developer", type: "IT / Фриланс", pay: "₹300–800/hr", icon: "fa-code", color: "#81ecec", desc: "Web, mobile, Python/JS projects" }
+      ],
+      "New Zealand": [
+        { name: "Hospitality / Café", type: "Общепит", pay: "NZD 22–26/hr", icon: "fa-mug-hot", color: "#fdcb6e", desc: "Cafés, restaurants, bars" },
+        { name: "Retail Sales", type: "Розница", pay: "NZD 22–25/hr", icon: "fa-store", color: "#74b9ff", desc: "The Warehouse, Countdown, malls" },
+        { name: "Fruit Picking / Farm Work", type: "Подработка", pay: "NZD 22–30/hr", icon: "fa-apple-whole", color: "#00b894", desc: "Seasonal farm work — popular among students" },
+        { name: "Tutoring", type: "Образование", pay: "NZD 25–40/hr", icon: "fa-chalkboard-teacher", color: "#a29bfe", desc: "Math, science, NCEA prep" },
+        { name: "Uber Eats / DoorDash", type: "Доставка", pay: "NZD 15–22/hr", icon: "fa-car", color: "#e17055", desc: "Food delivery in Auckland, Wellington" },
+        { name: "Freelance / IT", type: "IT / Фриланс", pay: "NZD 30–55/hr", icon: "fa-code", color: "#81ecec", desc: "Web development, design, writing" }
+      ]
+    };
+
+    const countryFlags = {
+      "United States": "🇺🇸", "United Kingdom": "🇬🇧", "Canada": "🇨🇦", "Germany": "🇩🇪",
+      "France": "🇫🇷", "Australia": "🇦🇺", "Japan": "🇯🇵", "South Korea": "🇰🇷",
+      "China": "🇨🇳", "Turkey": "🇹🇷", "Russia": "🇷🇺", "Netherlands": "🇳🇱",
+      "Switzerland": "🇨🇭", "Singapore": "🇸🇬", "Sweden": "🇸🇪", "Italy": "🇮🇹",
+      "Spain": "🇪🇸", "UAE": "🇦🇪", "Malaysia": "🇲🇾", "Czech Republic": "🇨🇿",
+      "Poland": "🇵🇱", "Hungary": "🇭🇺", "India": "🇮🇳", "New Zealand": "🇳🇿"
+    };
+
+    // === Region Tabs ===
+    const regionTabs = document.querySelectorAll('.region-tab');
+    const regionContents = document.querySelectorAll('.region-content');
+
+    regionTabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        regionTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const region = this.dataset.region;
+        regionContents.forEach(c => c.classList.remove('active'));
+        document.getElementById('region-' + region).classList.add('active');
+        document.getElementById('jobSearch').value = '';
+        document.querySelectorAll('.job-card, .country-card').forEach(c => c.style.display = '');
+        if (region === 'world') {
+          document.getElementById('countryGrid').style.display = '';
+          document.getElementById('countryJobsView').style.display = 'none';
+          document.getElementById('jobSearch').placeholder = 'Search countries...';
+        } else {
+          document.getElementById('jobSearch').placeholder = 'Search part-time jobs...';
+        }
+      });
+    });
+
+    // === Country Click → Jobs ===
+    document.querySelectorAll('.country-card').forEach(card => {
+      card.addEventListener('click', function () {
+        openCountryJobs(this.dataset.country);
+      });
+    });
+
+    function openCountryJobs(country) {
+      const grid = document.getElementById('countryGrid');
+      const view = document.getElementById('countryJobsView');
+      const title = document.getElementById('countryJobsTitle');
+      const container = document.getElementById('countryJobsCards');
+      const flag = countryFlags[country] || '🌍';
+
+      grid.style.display = 'none';
+      view.style.display = 'block';
+      title.innerHTML = flag + ' Part-Time Jobs in ' + country;
+
+      const jobs = worldJobs[country] || [];
+      container.innerHTML = '';
+
+      if (jobs.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:40px 0;">No job data available yet.</p>';
+        return;
+      }
+
+      jobs.forEach(j => {
+        const card = document.createElement('div');
+        card.className = 'job-card';
+        card.dataset.name = j.name + ' ' + j.type;
+        card.innerHTML = `
+          <div class="job-card-icon" style="color:${j.color}"><i class="fas ${j.icon}"></i></div>
+          <div class="job-card-body">
+            <h4>${j.name}</h4>
+            <div class="job-meta">
+              <span class="job-type"><i class="fas fa-tag" style="color:${j.color}"></i> ${j.type}</span>
+              <span class="job-pay">${j.pay}</span>
+            </div>
+            <p class="job-desc">${j.desc}</p>
+            <span class="view-btn">View details</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('jobSearch').placeholder = 'Search jobs in ' + country + '...';
+      document.getElementById('jobSearch').value = '';
+    }
+
+    // === Back to Countries ===
+    document.getElementById('backToCountries').addEventListener('click', function () {
+      document.getElementById('countryGrid').style.display = '';
+      document.getElementById('countryJobsView').style.display = 'none';
+      document.getElementById('jobSearch').placeholder = 'Search countries...';
+      document.getElementById('jobSearch').value = '';
+    });
+
+    // === Search ===
+    document.getElementById('jobSearch').addEventListener('input', function () {
+      const q = this.value.toLowerCase();
+      const activeRegion = document.querySelector('.region-content.active');
+
+      if (activeRegion.id === 'region-kz') {
+        activeRegion.querySelectorAll('.job-card').forEach(card => {
+          const name = card.dataset.name.toLowerCase();
+          const title = card.querySelector('h4').textContent.toLowerCase();
+          card.style.display = (name.includes(q) || title.includes(q)) ? '' : 'none';
+        });
+      } else {
+        const jobView = document.getElementById('countryJobsView');
+        if (jobView.style.display !== 'none') {
+          jobView.querySelectorAll('.job-card').forEach(card => {
+            const name = card.dataset.name.toLowerCase();
+            const title = card.querySelector('h4').textContent.toLowerCase();
+            card.style.display = (name.includes(q) || title.includes(q)) ? '' : 'none';
+          });
+        } else {
+          document.querySelectorAll('.country-card').forEach(card => {
+            const name = card.dataset.country.toLowerCase();
+            card.style.display = name.includes(q) ? '' : 'none';
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
